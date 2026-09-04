@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Multi-environment API Key Resolution (Local .env vs Streamlit Cloud Secrets)
+# Multi-environment API Key Resolution
 api_key = os.getenv("GEMINI_API_KEY")
 if not api_key:
     try:
@@ -26,28 +26,28 @@ PRIMARY_MODEL = "gemini-3.5-flash-lite"
 
 class ExtractedProblem(BaseModel):
     problem_number: str = Field(description="Book question number e.g. 1.25")
-    topic: str = Field(description="Broad physics chapter e.g. Mechanics, Thermodynamics, Optics")
-    subtopic: str = Field(description="Specific sub-concept e.g. Coriolis Force, Work-Energy Theorem")
-    question_text: str = Field(description="Complete text of the question with mathematical symbols formatted in standard inline LaTeX ($...$).")
-    has_diagram: bool = Field(description="True if the problem references or requires a diagram from the page.")
-    diagram_bounding_box: Optional[List[int]] = Field(default=None, description="[ymin, xmin, ymax, xmax] normalized on a 0-1000 scale if diagram is present.")
-    correct_answer: str = Field(default="N/A", description="Given numerical answer or analytical expression in standard LaTeX ($...$).")
-    solution_steps: str = Field(default="Standard derivation steps.", description="Step-by-step mathematical derivation.")
+    topic: str = Field(description="Broad chapter e.g. Mechanics, Chemical Bonding, Calculus")
+    subtopic: str = Field(description="Specific sub-concept e.g. Work-Energy, Hybridisation, Definite Integrals")
+    question_text: str = Field(description="Complete text of question with formulas formatted in inline LaTeX ($...$).")
+    has_diagram: bool = Field(description="True if the problem references or requires a diagram, reaction, or figure.")
+    diagram_bounding_box: Optional[List[int]] = Field(default=None, description="[ymin, xmin, ymax, xmax] mapped 0-1000.")
+    correct_answer: str = Field(default="N/A", description="Given answer in LaTeX ($...$).")
+    solution_steps: str = Field(default="Standard derivation steps.", description="Step-by-step mathematical or conceptual derivation.")
 
 class BookPageExtraction(BaseModel):
     problems: List[ExtractedProblem]
 
-def extract_problems_from_page(page_image_bytes: bytes, page_num: int) -> List[dict]:
-    prompt = """
-    You are an expert physics document parser and competitive exam analyst.
-    Examine this physics textbook page carefully:
-    1. Identify all distinct physics problems on this page.
-    2. Extract the exact text of each problem cleanly into question_text. Use standard LaTeX syntax enclosed in single dollar signs ($...$) for all algebraic symbols, Greek letters, and formulas.
+def extract_problems_from_page(page_image_bytes: bytes, page_num: int, subject: str = "Physics") -> List[dict]:
+    prompt = f"""
+    You are an expert JEE Advanced {subject} professor and exam document parser.
+    Examine this {subject} textbook page carefully:
+    1. Identify all distinct problems/questions on this page.
+    2. Extract the exact text of each problem cleanly into question_text. Use standard LaTeX syntax enclosed in single dollar signs ($...$) for all math, Greek symbols, reactions, and chemical structures.
     3. Ensure no English prose words are accidentally lumped inside LaTeX delimiters.
-    4. If the page contains a diagram or figure belonging to a problem:
+    4. If the page contains a diagram, geometry figure, circuit, or chemical structure:
        - Set has_diagram = true.
        - Provide diagram_bounding_box as [ymin, xmin, ymax, xmax] mapped on a scale of 0 to 1000.
-    5. Extract the given answer (if present on the page) or provide the analytical step-by-step solution derivation in solution_steps.
+    5. Extract the answer or provide the step-by-step derivation/mechanism in solution_steps.
     """
 
     try:
@@ -66,12 +66,26 @@ def extract_problems_from_page(page_image_bytes: bytes, page_num: int) -> List[d
         problems = data.get("problems", [])
         for p in problems:
             p["page_number"] = page_num
+            p["subject"] = subject
         return problems
     except Exception as e:
         print(f"Error processing page {page_num}: {e}")
         return []
 
-def process_book_pdf(pdf_path: str, book_title: str, start_page: int, end_page: int, db_path: str = "database/questions_db.json"):
+def process_book_pdf(*args, **kwargs):
+    pdf_path = kwargs.get("pdf_path", args[0] if len(args) > 0 else "")
+    book_title = kwargs.get("book_title", args[1] if len(args) > 1 else "Book")
+    subject = kwargs.get("subject", "Physics")
+    
+    if len(args) >= 4 and isinstance(args[2], (int, float)):
+        start_page = int(args[2])
+        end_page = int(args[3])
+    else:
+        start_page = int(kwargs.get("start_page", 1))
+        end_page = int(kwargs.get("end_page", 3))
+
+    db_path = kwargs.get("db_path", "database/questions_db.json")
+
     os.makedirs(os.path.dirname(db_path), exist_ok=True)
     os.makedirs("static/diagrams", exist_ok=True)
 
@@ -96,12 +110,12 @@ def process_book_pdf(pdf_path: str, book_title: str, start_page: int, end_page: 
         pix = page.get_pixmap(dpi=150)
         img_bytes = pix.tobytes("png")
 
-        problems = extract_problems_from_page(img_bytes, page_no)
+        problems = extract_problems_from_page(img_bytes, page_no, subject)
 
         for prob in problems:
             prob["source_book"] = book_title
+            prob["subject"] = subject
             
-            # Crop and save diagrams if coordinates are available
             if prob.get("has_diagram") and prob.get("diagram_bounding_box"):
                 bbox = prob["diagram_bounding_box"]
                 if len(bbox) == 4:
@@ -113,7 +127,7 @@ def process_book_pdf(pdf_path: str, book_title: str, start_page: int, end_page: 
                         (xmax / 1000) * w,
                         (ymax / 1000) * h
                     )
-                    diag_filename = f"diag_{book_title}_p{page_no}_{prob.get('problem_number', 'q')}.png"
+                    diag_filename = f"diag_{subject}_{book_title}_p{page_no}_{prob.get('problem_number', 'q')}.png"
                     diag_path = os.path.join("static/diagrams", diag_filename)
                     try:
                         crop_pix = page.get_pixmap(clip=rect, dpi=200)
