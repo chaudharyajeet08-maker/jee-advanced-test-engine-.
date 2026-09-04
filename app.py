@@ -15,7 +15,7 @@ from extractor import process_book_pdf
 
 load_dotenv()
 
-# Multi-environment API Key Resolution (Local .env vs Streamlit Cloud Secrets)
+# Multi-environment API Key Resolution
 api_key = os.getenv("GEMINI_API_KEY")
 if not api_key:
     try:
@@ -25,7 +25,7 @@ if not api_key:
 
 client = genai.Client(api_key=api_key) if api_key else None
 
-st.set_page_config(page_title="JEE Advanced Test Engine", layout="wide", page_icon="⚛️")
+st.set_page_config(page_title="JEE Advanced Test Engine (PCM)", layout="wide", page_icon="⚛️")
 
 DB_PATH = "database/questions_db.json"
 PRIMARY_MODEL = "gemini-3.5-flash-lite"
@@ -48,19 +48,21 @@ def load_db():
     if os.path.exists(DB_PATH):
         try:
             with open(DB_PATH, "r", encoding="utf-8") as f:
-                return json.load(f)
+                data = json.load(f)
+                # Ensure backward compatibility by assigning Physics if subject tag is missing
+                for item in data:
+                    if "subject" not in item:
+                        item["subject"] = "Physics"
+                return data
         except Exception:
             return []
     return []
 
 def ensure_math_delimiters(text: str) -> str:
-    """Ensures answers and isolated formulas have proper $...$ delimiters for MathJax."""
     if not text:
         return ""
     trimmed = text.strip()
-    # Strip accidental prefixes
     trimmed = re.sub(r"^(Option\s*)?(\([A-Da-d0-9]\)|[A-Da-d0-9][\.\:\-])\s*", "", trimmed)
-    # If it contains LaTeX backslashes or sub/superscripts without $, wrap in $...$
     if ("\\" in trimmed or "_" in trimmed or "^" in trimmed or "=" in trimmed) and "$" not in trimmed:
         return f"${trimmed}$"
     return trimmed
@@ -113,11 +115,10 @@ def format_solution_to_html(raw_sol: str) -> str:
     if not raw_sol:
         return "<p>Solution not available.</p>"
     
-    # Standardize headers even if model outputs continuous text
     text = raw_sol
     keywords = [
-        "Key Physical Concepts", "Key Concepts", "Physical Concepts",
-        "Coordinate System & Setup", "Physical Setup", "Setup",
+        "Key Physical Concepts", "Key Concepts", "Physical Concepts", "Chemical Principles",
+        "Mathematical Formulation", "Coordinate System & Setup", "Physical Setup", "Setup",
         "Rigorous Derivation", "Step-by-Step Derivation", "Step-by-Step Solution", "Derivation",
         "Option Verification", "Analysis of Statements", "Conclusion & Verification", "Conclusion"
     ]
@@ -150,9 +151,11 @@ def frame_question_dynamically(raw_q: dict, target_type: str) -> dict:
         fallback["question_type"] = target_type
         return fallback
 
+    subj = raw_q.get("subject", "Physics")
+
     if target_type == "numerical":
         base_prompt = f"""
-        You are an expert JEE Advanced Physics professor.
+        You are an expert JEE Advanced {subj} professor.
         Provide a textbook-grade, rigorous, and beautifully formatted solution for this numerical problem.
 
         PROBLEM:
@@ -164,16 +167,16 @@ def frame_question_dynamically(raw_q: dict, target_type: str) -> dict:
 
         STRICT STYLING AND PEDAGOGY RULES:
         1. Write in natural sentence case (NEVER WRITE IN ALL CAPS).
-        2. In 'correct_answer': Enclose all formulas and numbers with units in standard LaTeX math delimiters (e.g. "$p_0 V_0 \\left[ \\eta \\ln \\eta - (1+\\eta)\\ln \\left(\\frac{{1+\\eta}}{{2}}\\right) \\right]$").
+        2. In 'correct_answer': Enclose all formulas, numbers, and units in standard LaTeX math delimiters (e.g. "$4.5\\text{{ m/s}}$" or "$6.02 \\times 10^{{23}}$").
         3. In 'solution_steps': Structure with clear Markdown headers:
            ### Key Concepts
-           Explain the underlying physics laws (isothermal expansion, first law of thermodynamics, etc.).
-           ### Physical Setup
-           State the coordinates, parameters, and thermodynamic variables.
+           Explain the underlying scientific principles.
+           ### Physical / Mathematical Setup
+           State the variables, initial conditions, or equations.
            ### Step-by-Step Derivation
-           Derive the result step-by-step. Put key integration and work equations on their own lines using display math ($$...$$).
+           Derive the result step-by-step. Put key equations on their own lines using display math ($$...$$).
            ### Final Evaluation
-           State the calculated numerical/algebraic result clearly with proper SI units.
+           State the calculated numerical result clearly with proper units.
         """
         try:
             response = client.models.generate_content(
@@ -197,8 +200,8 @@ def frame_question_dynamically(raw_q: dict, target_type: str) -> dict:
 
     if target_type == "matrix_match":
         prompt = f"""
-        You are an expert JEE Advanced Physics professor.
-        Convert this physics problem into a rigorous JEE Advanced MATCH THE COLUMN (Matrix Match) question.
+        You are an expert JEE Advanced {subj} professor.
+        Convert this {subj} problem into a rigorous JEE Advanced MATCH THE COLUMN (Matrix Match) question.
 
         PROBLEM:
         {raw_q.get('question_text')}
@@ -207,20 +210,20 @@ def frame_question_dynamically(raw_q: dict, target_type: str) -> dict:
 
         INSTRUCTIONS:
         1. Natural sentence case (NEVER USE ALL CAPS).
-        2. Set column_1_items as 4 physical parameters/scenarios (A, B, C, D).
-        3. Set column_2_items as 4 values/expressions (P, Q, R, S) in LaTeX $...$.
+        2. Set column_1_items as 4 parameters/cases/reactions (A, B, C, D).
+        3. Set column_2_items as 4 values/expressions/products (P, Q, R, S) in LaTeX $...$.
         4. options: 4 combinations (e.g. ["A->P, R; B->Q; C->S; D->P", ...]).
         5. In correct_answer: Write the single correct option letter ("A", "B", "C", or "D").
         6. In solution_steps: Structure into:
            ### Key Concepts
            ### Step-by-Step Derivation
-           Provide clear individual derivations proving each match (A), (B), (C), and (D).
+           Provide individual derivations proving each match (A), (B), (C), and (D).
            ### Conclusion
         """
     else:
         prompt = f"""
-        You are an expert JEE Advanced Physics professor.
-        Convert this numerical problem into a standard JEE Advanced {target_type.replace('_', ' ').title()} question.
+        You are an expert JEE Advanced {subj} professor.
+        Convert this problem into a standard JEE Advanced {target_type.replace('_', ' ').title()} question.
 
         PROBLEM:
         {raw_q.get('question_text')}
@@ -229,15 +232,15 @@ def frame_question_dynamically(raw_q: dict, target_type: str) -> dict:
 
         INSTRUCTIONS:
         1. Natural sentence case (NEVER USE ALL CAPS).
-        2. In 'options': Provide 4 distinct options. Keep text outside math and formulas in $...$ (e.g., "$7.5\\text{{ cm}}$, towards East").
+        2. In 'options': Provide 4 distinct options. Keep text outside math and formulas in $...$.
         3. In 'correct_answer': Specify the correct option ("A", "B", "C", "D", or combination like "A, C").
         4. In 'solution_steps':
            ### Key Concepts
            ### Mathematical Formulation
            ### Step-by-Step Derivation
-           Put derivations on separate lines using display math ($$...$$).
+           Put key steps on separate lines using display math ($$...$$).
            ### Option Verification
-           Thoroughly verify why the correct choice matches and analyze any incorrect choices.
+           Thoroughly verify why the correct choice matches and analyze incorrect choices.
         """
 
     for attempt in range(1, 3):
@@ -266,11 +269,12 @@ def frame_question_dynamically(raw_q: dict, target_type: str) -> dict:
                 fallback["question_type"] = "numerical"
                 return fallback
 
-def build_html_paper(selected, topic_name):
-    q_html_parts = []
-    sol_html_parts = []
+def build_section_html(questions_list, start_idx=1):
+    q_parts = []
+    sol_parts = []
 
-    for idx, q in enumerate(selected, 1):
+    for offset, q in enumerate(questions_list):
+        curr_idx = start_idx + offset
         q_type_raw = q.get("question_type", "numerical")
         type_labels = {
             "single_choice": "One Option Correct",
@@ -278,7 +282,7 @@ def build_html_paper(selected, topic_name):
             "numerical": "Numerical Value Answer",
             "matrix_match": "Match The Column (Matrix Match)"
         }
-        q_type_badge = type_labels.get(q_type_raw, "Physics Problem")
+        q_type_badge = type_labels.get(q_type_raw, "Subject Problem")
         q_text = clean_question_body(q.get("question_text", ""))
 
         interactive_content = ""
@@ -288,7 +292,6 @@ def build_html_paper(selected, topic_name):
             c1_list = q.get("column_1_items", [])
             c2_list = q.get("column_2_items", [])
             opts = q.get("options", [])
-
             c1_labels = ["A", "B", "C", "D"]
             c2_labels = ["P", "Q", "R", "S"]
 
@@ -344,14 +347,15 @@ def build_html_paper(selected, topic_name):
         q_block = f"""
         <div class="question-container">
           <div class="q-header">
-            <span class="q-num">Q{idx}.</span>
+            <span class="q-num">Q{curr_idx}.</span>
             <span class="q-badge">{q_type_badge}</span>
+            <span style="font-size:11.5px; color:#6b7280; margin-left:8px;">[{q.get('subject', 'PCM')} | {q.get('topic', 'General')}]</span>
           </div>
           <div class="q-body">{q_text}</div>
           {interactive_content}
         </div>
         """
-        q_html_parts.append(q_block)
+        q_parts.append(q_block)
 
         ans = ensure_math_delimiters(clean_question_body(q.get("correct_answer", "N/A")))
         formatted_sol_html = format_solution_to_html(clean_question_body(q.get("solution_steps", "")))
@@ -359,7 +363,7 @@ def build_html_paper(selected, topic_name):
         sol_block = f"""
         <div class="sol-container">
           <div class="sol-header">
-            <span class="sol-title">Question {idx} Detailed Solution</span>
+            <span class="sol-title">Question {curr_idx} Detailed Solution ({q.get('subject', 'PCM')})</span>
             <span class="sol-badge">Correct Answer: {ans}</span>
           </div>
           <div class="sol-content">
@@ -367,7 +371,28 @@ def build_html_paper(selected, topic_name):
           </div>
         </div>
         """
-        sol_html_parts.append(sol_block)
+        sol_parts.append(sol_block)
+
+    return "".join(q_parts), "".join(sol_parts)
+
+def build_full_paper(section_dict, paper_title="JEE Advanced Test Paper"):
+    q_sections_html = ""
+    sol_sections_html = ""
+    q_counter = 1
+
+    for sec_name, q_list in section_dict.items():
+        if not q_list:
+            continue
+        q_h, sol_h = build_section_html(q_list, start_idx=q_counter)
+        q_sections_html += f"""
+        <div class="section-tag">{sec_name.upper()}</div>
+        {q_h}
+        """
+        sol_sections_html += f"""
+        <div class="section-tag">{sec_name.upper()} - SOLUTIONS</div>
+        {sol_h}
+        """
+        q_counter += len(q_list)
 
     full_html = f"""<!DOCTYPE html>
 <html>
@@ -423,10 +448,11 @@ window.MathJax = {{
     color: #111827;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 0.5px;
-    padding: 7px 12px;
-    border-left: 4px solid #1d4ed8;
+    padding: 8px 14px;
+    border-left: 5px solid #1d4ed8;
+    margin-top: 25px;
     margin-bottom: 20px;
   }}
   .question-container {{
@@ -561,52 +587,59 @@ window.MathJax = {{
   <button onclick="window.print()" style="background:#1d4ed8; color:white; border:none; padding:8px 18px; border-radius:4px; font-weight:600; cursor:pointer; font-family:Arial,sans-serif; font-size:13px;">🖨️ Print / Save as PDF</button>
 </div>
 <div class="header-box">
-  <h1>JEE (Advanced) Physics Practice Test</h1>
-  <p>Topic: {topic_name} | Target: JEE Advanced</p>
+  <h1>JEE (Advanced) Examination Paper</h1>
+  <p>{paper_title} | Comprehensive PCM Standard</p>
 </div>
-<div class="section-tag">SECTION I: QUESTIONS</div>
-{''.join(q_html_parts)}
+{q_sections_html}
 <div style="page-break-before: always; margin-top:35px;"></div>
 <div class="header-box" style="margin-top:25px;">
-  <h1>Answer Key & Detailed Solutions</h1>
+  <h1>Answer Key & Detailed Pedagogical Solutions</h1>
 </div>
-{''.join(sol_html_parts)}
+{sol_sections_html}
 </body>
 </html>"""
     return full_html
 
-st.title("⚛️ JEE Advanced Physics Question Engine")
+st.title("⚛️ JEE Advanced Test Engine (PCM)")
 
-tabs = st.tabs(["📥 1. Ingest Physics Book", "📝 2. Assemble Test Paper", "📚 3. Question Bank Management"])
+tabs = st.tabs(["📥 1. Ingest Subject Books", "📝 2. Assemble Test Paper", "📚 3. PCM Question Bank"])
 
-# --- TAB 1: INGESTION ---
+# ==========================================
+# TAB 1: INGEST BOOKS (PHYSICS / CHEMISTRY / MATHS)
+# ==========================================
 with tabs[0]:
-    st.subheader("Upload Reference Book & Ingest Raw Physics Problems")
-    col1, col2 = st.columns([2, 1])
+    st.subheader("Upload Reference Book & Ingest Questions")
+    col_sub, col_file, col_title = st.columns([1, 1.5, 1])
     
-    with col1:
-        uploaded_file = st.file_uploader("Upload PDF", type=["pdf"])
-        book_title = st.text_input("Book Identifier", value="Irodov")
-        
-    with col2:
+    with col_sub:
+        subject = st.selectbox("Subject", ["Physics", "Chemistry", "Mathematics"])
+    with col_file:
+        uploaded_file = st.file_uploader(f"Upload {subject} PDF", type=["pdf"])
+    with col_title:
+        default_titles = {"Physics": "Irodov", "Chemistry": "MS_Chouhan", "Mathematics": "Black_Book"}
+        book_title = st.text_input("Book Identifier", value=default_titles.get(subject, "Reference_Book"))
+
+    col_p1, col_p2 = st.columns(2)
+    with col_p1:
         start_p = st.number_input("Start Page", min_value=1, value=14, step=1)
+    with col_p2:
         end_p = st.number_input("End Page", min_value=1, value=16, step=1)
-    
-    if st.button("🚀 Start Extraction", type="primary", use_container_width=True):
+
+    if st.button(f"🚀 Extract {subject} Questions", type="primary", use_container_width=True):
         if not uploaded_file:
             st.error("Please upload a PDF file first.")
         elif end_p < start_p:
             st.error("End page cannot be smaller than start page.")
         else:
-            with st.spinner(f"Ingesting pages {start_p} to {end_p}..."):
+            with st.spinner(f"Extracting {subject} problems from pages {start_p} to {end_p}..."):
                 with tempfile.NamedTemporaryFile(delete=False, suffix=".pdf") as tmp:
                     tmp.write(uploaded_file.read())
                     tmp_path = tmp.name
-                
+
                 try:
-                    process_book_pdf(tmp_path, book_title, int(start_p), int(end_p), db_path=DB_PATH)
+                    process_book_pdf(tmp_path, book_title, subject, int(start_p), int(end_p), db_path=DB_PATH)
                     st.cache_data.clear()
-                    st.success(f"Extracted pages {start_p}-{end_p} successfully!")
+                    st.success(f"{subject} problems extracted and indexed successfully!")
                     st.rerun()
                 except Exception as e:
                     st.error(f"Extraction failed: {e}")
@@ -614,142 +647,175 @@ with tabs[0]:
                     if os.path.exists(tmp_path):
                         os.remove(tmp_path)
 
-# --- TAB 2: GENERATION ---
+# ==========================================
+# TAB 2: ASSEMBLE TEST PAPER
+# ==========================================
 with tabs[1]:
     st.subheader("Configure & Assemble JEE Advanced Test Paper")
     questions = load_db()
-    
+
     if not questions:
-        st.warning("Database empty. Run Ingest in Tab 1 first.")
+        st.warning("Database empty. Please ingest problems in Tab 1 first.")
     else:
-        available_books = sorted(list(set([q.get("source_book", "General") for q in questions if q.get("source_book")])))
-        raw_topics = [q.get("topic", "").strip() for q in questions if q.get("topic")]
-        available_topics = sorted(list(set([t for t in raw_topics if t])))
-        if not available_topics:
-            available_topics = ["General Physics"]
+        # Paper Mode: Full PCM Mock or Single Subject
+        mode = st.radio("Test Paper Scope", ["Full Mock (Physics + Chemistry + Mathematics)", "Single Subject Special Test"], horizontal=True)
 
-        f1, f2, f3, f4 = st.columns(4)
-        with f1:
-            selected_book = st.selectbox("Filter Book", ["All Books"] + available_books)
-        with f2:
-            selected_topic = st.selectbox("Filter Topic", ["All Topics"] + available_topics)
+        sections_to_assemble = ["Physics", "Chemistry", "Mathematics"] if "Full Mock" in mode else [
+            st.selectbox("Select Target Subject", ["Physics", "Chemistry", "Mathematics"])
+        ]
 
-        # Dynamic Subtopic Filter based on selected Topic
-        if selected_topic == "All Topics":
-            raw_subtopics = [q.get("subtopic", "").strip() for q in questions if q.get("subtopic")]
-        else:
-            raw_subtopics = [
-                q.get("subtopic", "").strip() 
-                for q in questions 
-                if q.get("topic", "").strip().lower() == selected_topic.lower() and q.get("subtopic")
-            ]
-        available_subtopics = sorted(list(set([st for st in raw_subtopics if st])))
+        paper_name = st.text_input("Test Paper Title", value="JEE Advanced Full Mock Examination - 01")
 
-        with f3:
-            selected_subtopic = st.selectbox("Filter Subtopic", ["All Subtopics"] + available_subtopics)
+        assembled_sections = {}
+        total_requested_all = 0
 
-        with f4:
-            default_title = "Comprehensive Physics Test"
-            if selected_topic != "All Topics":
-                default_title = selected_topic if selected_subtopic == "All Subtopics" else f"{selected_topic} - {selected_subtopic}"
-            custom_title = st.text_input("Header Title", value=default_title)
+        for subj in sections_to_assemble:
+            st.markdown(f"### 📘 Section: {subj}")
+            subj_pool = [q for q in questions if q.get("subject", "Physics") == subj]
 
-        filtered_pool = questions
-        if selected_book != "All Books":
-            filtered_pool = [q for q in filtered_pool if q.get("source_book") == selected_book]
-        if selected_topic != "All Topics":
-            filtered_pool = [q for q in filtered_pool if q.get("topic", "").strip().lower() == selected_topic.lower()]
-        if selected_subtopic != "All Subtopics":
-            filtered_pool = [q for q in filtered_pool if q.get("subtopic", "").strip().lower() == selected_subtopic.lower()]
+            if not subj_pool:
+                st.warning(f"No questions found for {subj}. Please ingest {subj} questions in Tab 1.")
+                continue
 
-        total_avail = len(filtered_pool)
-        st.info(f"Available Base Problems: **{total_avail}**")
+            available_books = sorted(list(set([q.get("source_book", "General") for q in subj_pool if q.get("source_book")])))
+            raw_topics = [q.get("topic", "").strip() for q in subj_pool if q.get("topic")]
+            available_topics = sorted(list(set([t for t in raw_topics if t])))
 
-        c1, c2, c3, c4 = st.columns(4)
-        with c1:
-            num_single = st.number_input("Single Correct", min_value=0, max_value=max(total_avail, 1), value=min(2, total_avail))
-        with c2:
-            num_multi = st.number_input("One or More Correct", min_value=0, max_value=max(total_avail, 1), value=min(2, total_avail))
-        with c3:
-            num_matrix = st.number_input("Match The Column", min_value=0, max_value=max(total_avail, 1), value=min(1, total_avail))
-        with c4:
-            num_numeric = st.number_input("Numerical Value", min_value=0, max_value=max(total_avail, 1), value=min(2, total_avail))
-            
-        total_requested = num_single + num_multi + num_matrix + num_numeric
+            f1, f2, f3 = st.columns(3)
+            with f1:
+                sel_book = st.selectbox(f"Filter Book ({subj})", ["All Books"] + available_books, key=f"bk_{subj}")
+            with f2:
+                sel_topic = st.selectbox(f"Filter Topic ({subj})", ["All Topics"] + available_topics, key=f"top_{subj}")
 
-        if st.button("📄 Assemble Paper with Detailed Solutions", type="primary", use_container_width=True):
-            if total_requested == 0:
-                st.warning("Please select at least 1 question.")
-            elif total_requested > total_avail:
-                st.error(f"Requested {total_requested}, but only {total_avail} available.")
+            # Subtopic Filter
+            if sel_topic == "All Topics":
+                raw_subs = [q.get("subtopic", "").strip() for q in subj_pool if q.get("subtopic")]
             else:
-                seen_texts = set()
-                unique_pool = []
-                for q in filtered_pool:
-                    clean_q = "".join(q.get("question_text", "").split()).lower()
-                    if clean_q not in seen_texts and len(clean_q) > 10:
-                        seen_texts.add(clean_q)
-                        unique_pool.append(q)
+                raw_subs = [q.get("subtopic", "").strip() for q in subj_pool if q.get("topic", "").strip().lower() == sel_topic.lower() and q.get("subtopic")]
+            available_subs = sorted(list(set([s for s in raw_subs if s])))
 
-                random.shuffle(unique_pool)
+            with f3:
+                sel_subtopic = st.selectbox(f"Filter Subtopic ({subj})", ["All Subtopics"] + available_subs, key=f"sub_{subj}")
 
-                i1 = num_single
-                i2 = i1 + num_multi
-                i3 = i2 + num_matrix
-                
-                single_raw = unique_pool[:i1]
-                multi_raw = unique_pool[i1:i2]
-                matrix_raw = unique_pool[i2:i3]
-                numeric_raw = unique_pool[i3:total_requested]
+            # Apply Subject filters
+            f_pool = subj_pool
+            if sel_book != "All Books":
+                f_pool = [q for q in f_pool if q.get("source_book") == sel_book]
+            if sel_topic != "All Topics":
+                f_pool = [q for q in f_pool if q.get("topic", "").strip().lower() == sel_topic.lower()]
+            if sel_subtopic != "All Subtopics":
+                f_pool = [q for q in f_pool if q.get("subtopic", "").strip().lower() == sel_subtopic.lower()]
 
-                framed_questions = []
-                progress_bar = st.progress(0, text="Framing questions and composing descriptive solutions...")
-                step_total = max(total_requested, 1)
+            st.write(f"Available {subj} Questions: **{len(f_pool)}**")
+
+            c1, c2, c3, c4 = st.columns(4)
+            with c1:
+                n_scq = st.number_input(f"Single Correct ({subj})", min_value=0, max_value=len(f_pool), value=min(2, len(f_pool)), key=f"scq_{subj}")
+            with c2:
+                n_mcq = st.number_input(f"One or More ({subj})", min_value=0, max_value=len(f_pool), value=min(2, len(f_pool)), key=f"mcq_{subj}")
+            with c3:
+                n_mat = st.number_input(f"Match Column ({subj})", min_value=0, max_value=len(f_pool), value=min(1, len(f_pool)), key=f"mat_{subj}")
+            with c4:
+                n_num = st.number_input(f"Numerical ({subj})", min_value=0, max_value=len(f_pool), value=min(2, len(f_pool)), key=f"num_{subj}")
+
+            tot_subj_req = n_scq + n_mcq + n_mat + n_num
+            total_requested_all += tot_subj_req
+
+            assembled_sections[subj] = {
+                "pool": f_pool,
+                "counts": {"scq": n_scq, "mcq": n_mcq, "mat": n_mat, "num": n_num},
+                "total": tot_subj_req
+            }
+            st.divider()
+
+        if st.button("📄 Assemble Multi-Subject Paper with Detailed Solutions", type="primary", use_container_width=True):
+            if total_requested_all == 0:
+                st.warning("Please select at least 1 question across your sections.")
+            else:
+                final_assembled_paper = {}
+                progress_bar = st.progress(0, text="Assembling and formatting questions...")
+                step_total = max(total_requested_all, 1)
                 curr_step = 0
 
-                for item in single_raw:
-                    curr_step += 1
-                    progress_bar.progress(curr_step / step_total, text=f"Generating Single Correct ({curr_step}/{step_total})...")
-                    framed_questions.append(frame_question_dynamically(item, "single_choice"))
+                for subj, sec_info in assembled_sections.items():
+                    req = sec_info["total"]
+                    if req == 0:
+                        continue
+                    pool = sec_info["pool"]
 
-                for item in multi_raw:
-                    curr_step += 1
-                    progress_bar.progress(curr_step / step_total, text=f"Generating Multi Correct ({curr_step}/{step_total})...")
-                    framed_questions.append(frame_question_dynamically(item, "multi_choice"))
+                    seen = set()
+                    unique_pool = []
+                    for q in pool:
+                        t = "".join(q.get("question_text", "").split()).lower()
+                        if t not in seen and len(t) > 10:
+                            seen.add(t)
+                            unique_pool.append(q)
 
-                for item in matrix_raw:
-                    curr_step += 1
-                    progress_bar.progress(curr_step / step_total, text=f"Generating Match The Column ({curr_step}/{step_total})...")
-                    framed_questions.append(frame_question_dynamically(item, "matrix_match"))
+                    random.shuffle(unique_pool)
 
-                for item in numeric_raw:
-                    curr_step += 1
-                    progress_bar.progress(curr_step / step_total, text=f"Composing Numerical Derivation ({curr_step}/{step_total})...")
-                    framed_questions.append(frame_question_dynamically(item, "numerical"))
+                    c = sec_info["counts"]
+                    i1 = c["scq"]
+                    i2 = i1 + c["mcq"]
+                    i3 = i2 + c["mat"]
+
+                    scq_raw = unique_pool[:i1]
+                    mcq_raw = unique_pool[i1:i2]
+                    mat_raw = unique_pool[i2:i3]
+                    num_raw = unique_pool[i3:req]
+
+                    sec_framed = []
+                    for itm in scq_raw:
+                        curr_step += 1
+                        progress_bar.progress(curr_step / step_total, text=f"[{subj}] Single Correct ({curr_step}/{step_total})...")
+                        sec_framed.append(frame_question_dynamically(itm, "single_choice"))
+
+                    for itm in mcq_raw:
+                        curr_step += 1
+                        progress_bar.progress(curr_step / step_total, text=f"[{subj}] Multi Correct ({curr_step}/{step_total})...")
+                        sec_framed.append(frame_question_dynamically(itm, "multi_choice"))
+
+                    for itm in mat_raw:
+                        curr_step += 1
+                        progress_bar.progress(curr_step / step_total, text=f"[{subj}] Match The Column ({curr_step}/{step_total})...")
+                        sec_framed.append(frame_question_dynamically(itm, "matrix_match"))
+
+                    for itm in num_raw:
+                        curr_step += 1
+                        progress_bar.progress(curr_step / step_total, text=f"[{subj}] Numerical Solution ({curr_step}/{step_total})...")
+                        sec_framed.append(frame_question_dynamically(itm, "numerical"))
+
+                    final_assembled_paper[f"Section: {subj}"] = sec_framed
 
                 progress_bar.empty()
 
-                html_doc = build_html_paper(framed_questions, custom_title)
-                st.success(f"Generated {len(framed_questions)} questions with descriptive textbook solutions!")
+                html_doc = build_full_paper(final_assembled_paper, paper_title=paper_name)
+                st.success(f"Generated JEE Advanced Paper ({total_requested_all} total questions) across all selected sections!")
 
                 st.download_button(
-                    label="⬇️ Download Paper (HTML / Printable)",
+                    label="⬇️ Download Examination Paper (HTML / Printable PDF)",
                     data=html_doc,
-                    file_name=f"{custom_title.replace(' ', '_')}_Paper.html",
+                    file_name=f"{paper_name.replace(' ', '_')}.html",
                     mime="text/html",
                     use_container_width=True
                 )
 
-                components.html(html_doc, height=900, scrolling=True)
+                components.html(html_doc, height=950, scrolling=True)
 
-# --- TAB 3: MANAGEMENT ---
+# ==========================================
+# TAB 3: MANAGEMENT
+# ==========================================
 with tabs[2]:
-    st.subheader("Raw Problem Bank Repository")
+    st.subheader("PCM Question Bank Repository")
     db_items = load_db()
-    
+
     col_stat, col_btn = st.columns([3, 1])
     with col_stat:
         st.write(f"Total Problems in DB: **{len(db_items)}**")
+        p_cnt = len([q for q in db_items if q.get("subject") == "Physics"])
+        c_cnt = len([q for q in db_items if q.get("subject") == "Chemistry"])
+        m_cnt = len([q for q in db_items if q.get("subject") == "Mathematics"])
+        st.write(f"• **Physics**: {p_cnt} | • **Chemistry**: {c_cnt} | • **Mathematics**: {m_cnt}")
+
     with col_btn:
         if st.button("🗑️ Clear Entire Database", type="secondary", use_container_width=True):
             if os.path.exists(DB_PATH):
@@ -759,10 +825,11 @@ with tabs[2]:
             st.rerun()
 
     if db_items:
-        for i, item in enumerate(db_items[:15], 1):
+        for i, item in enumerate(db_items[:20], 1):
+            s_name = item.get("subject", "Physics")
             p_no = item.get("page_number", "N/A")
             top = item.get("topic", "General")
-            with st.expander(f"Q{i} [{item.get('source_book', 'Book')} - Page {p_no}] | Topic: {top}"):
+            with st.expander(f"Q{i} [{s_name}] [{item.get('source_book', 'Book')} - Page {p_no}] | {top}"):
                 st.markdown(f"**Question:** {item.get('question_text')}")
                 st.markdown(f"**Answer:** `{item.get('correct_answer')}`")
                 st.markdown(f"**Derivation:** {item.get('solution_steps')}")
