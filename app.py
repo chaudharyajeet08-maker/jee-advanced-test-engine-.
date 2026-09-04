@@ -166,7 +166,7 @@ def frame_question_dynamically(raw_q: dict, target_type: str) -> dict:
 
         STRICT STYLING AND PEDAGOGY RULES:
         1. Write in natural sentence case (NEVER WRITE IN ALL CAPS).
-        2. In 'correct_answer': Enclose all formulas, numbers, and units in standard LaTeX math delimiters (e.g. "$4.5\\text{{ m/s}}$" or "$6.02 \\times 10^{{23}}$").
+        2. In 'correct_answer': Enclose all formulas, numbers, and units in standard LaTeX math delimiters (e.g. "$4.5\\text{{ m/s}}$").
         3. In 'solution_steps': Structure with clear Markdown headers:
            ### Key Concepts
            Explain the underlying scientific principles.
@@ -636,7 +636,6 @@ with tabs[0]:
                     tmp_path = tmp.name
 
                 try:
-                    # Clean keyword call: prevents any argument collision
                     process_book_pdf(
                         pdf_path=tmp_path,
                         book_title=book_title,
