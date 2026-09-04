@@ -1,0 +1,14 @@
+# Environment & Secrets (NEVER COMMIT)
+.env
+venv/
+__pycache__/
+*.pyc
+
+# Local Data & Uploads
+books/*.pdf
+database/questions_db.json
+static/diagrams/*
+!static/diagrams/.gitkeep
+
+# System files
+.DS_Store

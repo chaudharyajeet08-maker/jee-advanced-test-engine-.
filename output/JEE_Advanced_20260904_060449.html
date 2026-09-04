@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JEE Advanced Physics Practice Paper</title>
+
+<!-- KaTeX for ultra-fast, sharp mathematical typography -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+        delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+        ],
+        throwOnError : false
+    });">
+</script>
+
+<style>
+  @page { size: A4; margin: 18mm; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.65;
+    color: #1a202c;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #ffffff;
+  }
+  .header { text-align: center; border-bottom: 2px solid #2d3748; padding-bottom: 15px; margin-bottom: 25px; }
+  .header h1 { margin: 0; font-size: 22px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
+  .header p { margin: 6px 0 0 0; font-size: 13px; color: #4a5568; font-weight: 600; }
+  
+  .section-tag {
+    background: #edf2f7;
+    color: #2b6cb0;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-left: 4px solid #3182ce;
+    margin: 30px 0 20px 0;
+    text-transform: uppercase;
+  }
+
+  .question-block {
+    margin-bottom: 28px;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed #e2e8f0;
+    page-break-inside: avoid;
+  }
+  .q-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+  .q-num { font-weight: 800; font-size: 15px; color: #2d3748; }
+  .q-type { font-size: 11px; background: #e2e8f0; color: #4a5568; padding: 2px 8px; border-radius: 4px; font-weight: 700; }
+  
+  .q-text { font-size: 15px; margin: 8px 0 12px 0; color: #2d3748; }
+  
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+    padding-left: 10px;
+  }
+  .option-item {
+    font-size: 14.5px;
+    background: #f7fafc;
+    border: 1px solid #edf2f7;
+    padding: 8px 12px;
+    border-radius: 6px;
+  }
+
+  .sol-block {
+    background: #f8fafc;
+    border-left: 4px solid #38a169;
+    padding: 14px 18px;
+    margin-bottom: 22px;
+    border-radius: 0 6px 6px 0;
+    page-break-inside: avoid;
+  }
+  .ans-badge {
+    display: inline-block;
+    background: #c6f6d5;
+    color: #22543d;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  .sol-steps { margin-top: 10px; font-size: 14px; color: #2d3748; }
+  .page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>JEE (Advanced) Physics Practice Test</h1>
+  <p>Topic: Mechanics &nbsp;|&nbsp; Target: JEE Advanced Pattern</p>
+</div>
+
+<div class="section-tag">Section I: Questions</div>
+
+        <div class="question-block">
+          <div class="q-header">
+            <span class="q-num">Q1.</span>
+            <span class="q-type">Numerical</span>
+          </div>
+          <div class="q-text">A small body $A$ starts sliding off the top of a smooth sphere of radius $R = 1.5\text{ m}$. Find the angle $\theta$ (in degrees, rounded to the nearest integer) between the vertical and the radius vector directed from the center of the sphere to the body at the moment the body breaks off the sphere.</div>
+          
+        </div>
+        
+
+        <div class="question-block">
+          <div class="q-header">
+            <span class="q-num">Q2.</span>
+            <span class="q-type">Multi Choice</span>
+          </div>
+          <div class="q-text">A radius vector of a particle varies with time $t$ as $\vec{r} = at(1 - \alpha t)\hat{i}$, where $a$ and $\alpha$ are positive constants. Which of the following statements is/are correct regarding the motion of the particle?</div>
+          <div class="options-grid"><div class="option-item"><strong>(A)</strong> The total distance $s$ covered by the particle in time $t > \frac{1}{2\alpha}$ is $s = \frac{a}{4\alpha} \left[ 1 + (1 - 2\alpha t)^2 \right]$</div><div class="option-item"><strong>(B)</strong> The particle turns back at time $t = \frac{1}{2\alpha}$</div><div class="option-item"><strong>(C)</strong> The velocity of the particle becomes zero at time $t = \frac{1}{2\alpha}$</div><div class="option-item"><strong>(D)</strong> The distance covered by the particle until it momentarily comes to rest is $\frac{a}{4\alpha}$</div></div>
+        </div>
+        
+
+        <div class="question-block">
+          <div class="q-header">
+            <span class="q-num">Q3.</span>
+            <span class="q-type">Single Choice</span>
+          </div>
+          <div class="q-text">A point moves in the $xy$-plane according to the law $x = at$ and $y = at(1 - \alpha t)$, where $a$ and $\alpha$ are positive constants, and $t$ is time. Find the time $t_0$ at which the velocity vector forms an angle of $\frac{\pi}{4}$ with the acceleration vector.</div>
+          <div class="options-grid"><div class="option-item"><strong>(A)</strong> $t_0 = \frac{1}{\alpha}$</div><div class="option-item"><strong>(B)</strong> $t_0 = \frac{1}{2\alpha}$</div><div class="option-item"><strong>(C)</strong> $t_0 = \frac{1}{4\alpha}$</div><div class="option-item"><strong>(D)</strong> $t_0 = \frac{2}{\alpha}$</div></div>
+        </div>
+        
+
+        <div class="question-block">
+          <div class="q-header">
+            <span class="q-num">Q4.</span>
+            <span class="q-type">Numerical</span>
+          </div>
+          <div class="q-text">A particle covered half of the total distance with velocity $v_0 = 3.0\text{ m/s}$. The remaining half of the distance was covered with velocity $v_1 = 2.0\text{ m/s}$ for half the remaining time, and with velocity $v_2 = 8.0\text{ m/s}$ for the other half of the remaining time. Calculate the mean velocity $\langle v \rangle$ (in $\text{m/s}$) of the particle averaged over the entire duration of motion.</div>
+          
+        </div>
+        
+
+        <div class="question-block">
+          <div class="q-header">
+            <span class="q-num">Q5.</span>
+            <span class="q-type">Single Choice</span>
+          </div>
+          <div class="q-text">A motorboat going downstream overcame a raft at a point $A$. After a time interval $\tau = 60\text{ min}$, the motorboat turned back and eventually passed the raft again at a distance $l = 6.0\text{ km}$ downstream from point $A$. Assuming the engine operates at a constant power output, what is the stream velocity $v_r$?</div>
+          <div class="options-grid"><div class="option-item"><strong>(A)</strong> $3.0\text{ km/h}$</div><div class="option-item"><strong>(B)</strong> $6.0\text{ km/h}$</div><div class="option-item"><strong>(C)</strong> $4.5\text{ km/h}$</div><div class="option-item"><strong>(D)</strong> $2.0\text{ km/h}$</div></div>
+        </div>
+        
+
+        <div class="question-block">
+          <div class="q-header">
+            <span class="q-num">Q6.</span>
+            <span class="q-type">Single Choice</span>
+          </div>
+          <div class="q-text">A body of mass $m$ is thrown vertically upward with an initial velocity $v_0$ in a medium where the air drag force is $F_d = -k v^2$, where $k$ is a positive constant and $v$ is the instantaneous velocity. Find the maximum height $h_{\text{max}}$ reached by the body.</div>
+          <div class="options-grid"><div class="option-item"><strong>(A)</strong> $h_{\text{max}} = \frac{m}{2k} \ln\left(1 + \frac{k v_0^2}{m g}\right)$</div><div class="option-item"><strong>(B)</strong> $h_{\text{max}} = \frac{m}{k} \ln\left(1 + \frac{k v_0^2}{m g}\right)$</div><div class="option-item"><strong>(C)</strong> $h_{\text{max}} = \frac{m}{2k} \ln\left(1 - \frac{k v_0^2}{m g}\right)$</div><div class="option-item"><strong>(D)</strong> $h_{\text{max}} = \frac{2m}{k} \arctan\left(\frac{k v_0^2}{m g}\right)$</div></div>
+        </div>
+        
+
+<div class="page-break"></div>
+
+<div class="header" style="margin-top: 25px;">
+  <h1>Answer Key & Step-by-Step Derivations</h1>
+</div>
+
+        <div class="sol-block">
+          <div><strong>Question 1</strong> &nbsp; <span class="ans-badge">Correct Answer: 48</span></div>
+          <div class="sol-steps"><strong>Derivation:</strong><br>Let $\theta$ be the angle made by the radius vector with the vertical. By conservation of mechanical energy: $mgR(1 - \cos\theta) = \frac{1}{2}m v^2 \implies v^2 = 2gR(1 - \cos\theta)$. The equation of radial motion is $mg \cos\theta - N = \frac{m v^2}{R}$. At the moment of break-off, $N = 0$, giving $mg \cos\theta = \frac{m}{R}(2gR(1 - \cos\theta)) = 2mg(1 - \cos\theta)$. Simplifying yields $3\cos\theta = 2 \implies \cos\theta = \frac{2}{3}$. Therefore, $\theta = \arccos\left(\frac{2}{3}\right) \approx 48.19^\circ$, which rounded to the nearest integer is $48$.</div>
+        </div>
+        
+
+        <div class="sol-block">
+          <div><strong>Question 2</strong> &nbsp; <span class="ans-badge">Correct Answer: A, B, C, D</span></div>
+          <div class="sol-steps"><strong>Derivation:</strong><br>1. Position vector is $\vec{r}(t) = (at - a\alpha t^2)\hat{i}$. Velocity vector is $\vec{v}(t) = \frac{d\vec{r}}{dt} = a(1 - 2\alpha t)\hat{i}$.
+2. Setting $\vec{v} = 0$ gives $t_1 = \frac{1}{2\alpha}$. Thus, velocity becomes zero at $t = \frac{1}{2\alpha}$, making C correct.
+3. Since motion is one-dimensional and velocity changes sign at $t_1 = \frac{1}{2\alpha}$, the particle turns back at this moment, making B correct.
+4. Position at $t_1$ is $x(t_1) = a\left(\frac{1}{2\alpha}\right) - a\alpha\left(\frac{1}{2\alpha}\right)^2 = \frac{a}{4\alpha}$. Distance covered until it comes to rest is $x(t_1) - x(0) = \frac{a}{4\alpha}$, making D correct.
+5. For $t > \frac{1}{2\alpha}$, distance $s = |x(t_1) - x(0)| + |x(t) - x(t_1)| = \frac{a}{4\alpha} + \left| at - a\alpha t^2 - \frac{a}{4\alpha} \right| = \frac{a}{4\alpha} + a\alpha \left(t - \frac{1}{2\alpha}\right)^2 = \frac{a}{4\alpha} \left[ 1 + 4\alpha^2 \left(t - \frac{1}{2\alpha}\right)^2 \right] = \frac{a}{4\alpha} \left[ 1 + (1 - 2\alpha t)^2 \right]$. Thus, A is also correct.</div>
+        </div>
+        
+
+        <div class="sol-block">
+          <div><strong>Question 3</strong> &nbsp; <span class="ans-badge">Correct Answer: A</span></div>
+          <div class="sol-steps"><strong>Derivation:</strong><br>1. Differentiating the position coordinates with respect to time gives the velocity components:
+$v_x = \frac{dx}{dt} = a$
+$v_y = \frac{dy}{dt} = a(1 - 2\alpha t)$
+So, $\vec{v} = a\hat{i} + a(1 - 2\alpha t)\hat{j}$.
+
+2. Differentiating velocity components gives the acceleration components:
+$w_x = \frac{dv_x}{dt} = 0$
+$w_y = \frac{dv_y}{dt} = -2a\alpha$
+So, $\vec{w} = -2a\alpha\hat{j}$.
+
+3. The cosine of the angle $\theta$ between $\vec{v}$ and $\vec{w}$ is:
+$\cos\theta = \frac{\vec{v} \cdot \vec{w}}{|\vec{v}||\vec{w}|} = \frac{-2a^2\alpha(1 - 2\alpha t)}{\sqrt{a^2 + a^2(1 - 2\alpha t)^2} \cdot 2a\alpha} = \frac{-(1 - 2\alpha t)}{\sqrt{1 + (1 - 2\alpha t)^2}}$
+
+4. Setting $\theta = \frac{\pi}{4}$, we get $\cos\left(\frac{\pi}{4}\right) = \frac{1}{\sqrt{2}}$:
+$\frac{-(1 - 2\alpha t)}{\sqrt{1 + (1 - 2\alpha t)^2}} = \frac{1}{\sqrt{2}}$
+Squaring both sides:
+$2(1 - 2\alpha t)^2 = 1 + (1 - 2\alpha t)^2 \implies (1 - 2\alpha t)^2 = 1$
+Solving gives $1 - 2\alpha t = -1 \implies 2\alpha t = 2 \implies t_0 = \frac{1}{\alpha}$ (for $t_0 > 0$).</div>
+        </div>
+        
+
+        <div class="sol-block">
+          <div><strong>Question 4</strong> &nbsp; <span class="ans-badge">Correct Answer: 3.75</span></div>
+          <div class="sol-steps"><strong>Derivation:</strong><br>Let total distance be $S$. 1. Time taken for the first half distance $\frac{S}{2}$ is $t_1 = \frac{S/2}{v_0} = \frac{S}{2v_0}$. 2. For the second half, let the equal time intervals be $t_2$. Then $\frac{S}{2} = v_1 t_2 + v_2 t_2 = (v_1 + v_2) t_2$, giving $t_2 = \frac{S}{2(v_1 + v_2)}$. Total time for the second half is $2t_2 = \frac{S}{v_1 + v_2}$. 3. Total time of motion $T = t_1 + 2t_2 = \frac{S}{2} \left( \frac{1}{v_0} + \frac{2}{v_1 + v_2} \right) = \frac{S (v_1 + v_2 + 2v_0)}{2 v_0 (v_1 + v_2)}$. 4. Average velocity $\langle v \rangle = \frac{S}{T} = \frac{2 v_0 (v_1 + v_2)}{v_1 + v_2 + 2v_0}$. 5. Substituting $v_0 = 3.0\text{ m/s}$, $v_1 = 2.0\text{ m/s}$, $v_2 = 8.0\text{ m/s}$: $\langle v \rangle = \frac{2 \times 3.0 \times (2.0 + 8.0)}{2.0 + 8.0 + 2 \times 3.0} = \frac{60}{16} = 3.75\text{ m/s}$.</div>
+        </div>
+        
+
+        <div class="sol-block">
+          <div><strong>Question 5</strong> &nbsp; <span class="ans-badge">Correct Answer: $3.0\text{ km/h}$</span></div>
+          <div class="sol-steps"><strong>Derivation:</strong><br>In the reference frame moving with the stream (river frame): 1. The raft is stationary. 2. The motorboat moves away from the raft at a relative speed $v_{br}$ for a duration $\tau$. 3. Upon turning back, the motorboat approaches the raft with the same relative speed $v_{br}$. 4. Thus, the return time relative to the raft is also $\tau$, making the total time of travel $T = 2\tau = 2.0\text{ h}$. 5. In the ground frame, the raft is carried by the stream over distance $l = 6.0\text{ km}$ in time $T$. 6. Therefore, stream velocity $v_r = \frac{l}{T} = \frac{6.0\text{ km}}{2.0\text{ h}} = 3.0\text{ km/h}$.</div>
+        </div>
+        
+
+        <div class="sol-block">
+          <div><strong>Question 6</strong> &nbsp; <span class="ans-badge">Correct Answer: A</span></div>
+          <div class="sol-steps"><strong>Derivation:</strong><br>During the upward motion, the equation of motion is $m v \frac{dv}{dh} = -(mg + kv^2)$. Separating variables gives $\frac{m v \, dv}{mg + kv^2} = -dh$. Integrating from $v = v_0$ at $h = 0$ to $v = 0$ at $h = h_{\text{max}}$: $\int_{v_0}^{0} \frac{m v \, dv}{mg + kv^2} = -h_{\text{max}}$. Using substitution $u = mg + kv^2$, we get $\frac{m}{2k} \ln\left(\frac{mg}{mg + kv_0^2}\right) = -h_{\text{max}}$, which simplifies to $h_{\text{max}} = \frac{m}{2k} \ln\left(1 + \frac{kv_0^2}{mg}\right)$.</div>
+        </div>
+        
+
+</body>
+</html>
