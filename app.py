@@ -7,7 +7,7 @@ from extractor import process_book_pdf
 
 load_dotenv()
 
-# API Key fallback
+# Multi-environment API Key Resolution
 api_key = os.getenv("GEMINI_API_KEY")
 if not api_key:
     try:
@@ -44,7 +44,7 @@ st.title("⚛️ JEE Advanced Physics Question Engine")
 tabs = st.tabs([
     "📥 1. Ingest Physics Book",
     "📝 2. Assemble Test Paper",
-    "📚 3. Question Bank & Types"
+    "📚 3. Question Bank Management"
 ])
 
 # ==========================================
@@ -52,6 +52,7 @@ tabs = st.tabs([
 # ==========================================
 with tabs[0]:
     st.header("Extract Problems from Textbook PDF")
+    
     uploaded_pdf = st.file_uploader("Upload Physics Book (PDF)", type=["pdf"])
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -93,41 +94,24 @@ with tabs[1]:
     if not questions:
         st.warning("Database empty. Run Ingest in Tab 1 first.")
     else:
-        # Dynamic Topic & Subtopic Filters
         all_topics = sorted(list({q.get("topic", "General") for q in questions if q.get("topic")}))
-        
-        col_t, col_st, col_type, col_bk = st.columns(4)
-        with col_t:
-            selected_topic = st.selectbox("Filter Topic", ["All Topics"] + all_topics)
 
-        # Filter Subtopic options dynamically according to chosen Topic
-        if selected_topic == "All Topics":
-            available_subtopics = sorted(list({q.get("subtopic", "General") for q in questions if q.get("subtopic")}))
-        else:
-            available_subtopics = sorted(list({
-                q.get("subtopic", "General") 
-                for q in questions 
-                if q.get("topic") == selected_topic and q.get("subtopic")
-            }))
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            selected_topic = st.selectbox("Filter by Topic", ["All Topics"] + all_topics)
+        with col2:
+            q_types = ["All Types", "Single Correct (SCQ)", "Multiple Correct (MCQ)", "Numerical", "Match the Column", "Paragraph / Stem"]
+            selected_type = st.selectbox("Question Pattern", q_types)
+        with col3:
+            all_books = sorted(list({q.get("source_book", "Unknown") for q in questions}))
+            book_filter = st.selectbox("Filter by Source Book", ["All Books"] + all_books)
 
-        with col_st:
-            selected_subtopic = st.selectbox("Filter Subtopic", ["All Subtopics"] + available_subtopics)
-
-        with col_type:
-            question_types = ["All Types", "Single Correct (SCQ)", "Multiple Correct (MCQ)", "Numerical", "Match the Column", "Paragraph / Stem"]
-            selected_q_type = st.selectbox("Question Pattern", question_types)
-
-        with col_bk:
-            book_filter = st.selectbox("Book Source", ["All Books"] + sorted(list({q.get("source_book", "Unknown") for q in questions})))
-
-        # Apply Filters
+        # Filtering
         filtered_questions = questions
         if selected_topic != "All Topics":
             filtered_questions = [q for q in filtered_questions if q.get("topic") == selected_topic]
-        if selected_subtopic != "All Subtopics":
-            filtered_questions = [q for q in filtered_questions if q.get("subtopic") == selected_subtopic]
-        if selected_q_type != "All Types":
-            filtered_questions = [q for q in filtered_questions if q.get("pattern_type") == selected_q_type]
+        if selected_type != "All Types":
+            filtered_questions = [q for q in filtered_questions if q.get("pattern_type") == selected_type]
         if book_filter != "All Books":
             filtered_questions = [q for q in filtered_questions if q.get("source_book") == book_filter]
 
@@ -136,18 +120,18 @@ with tabs[1]:
         if "selected_test_q_ids" not in st.session_state:
             st.session_state.selected_test_q_ids = set()
 
-        # Test Assembly Controls
-        st.subheader("Selected Paper Configuration")
+        # Paper Configuration Headers
         c1, c2, c3 = st.columns(3)
         with c1:
-            paper_title = st.text_input("Test Name", value="JEE Advanced Physics Full Test - 01")
+            paper_title = st.text_input("Test Paper Title", value="JEE Advanced Physics Test")
         with c2:
-            time_limit = st.number_input("Time Limit (Minutes)", min_value=15, value=60, step=15)
+            time_limit = st.number_input("Time Allowed (Minutes)", min_value=15, value=60, step=15)
         with c3:
             total_marks = st.number_input("Total Marks", min_value=10, value=60, step=5)
 
         st.divider()
-        st.subheader("Question Selection")
+        st.subheader("Select Questions for Paper")
+
         for i, q in enumerate(filtered_questions):
             q_id = f"{q.get('source_book', 'book')}_{q.get('problem_number', i)}_{i}"
             with st.container(border=True):
@@ -160,99 +144,102 @@ with tabs[1]:
                         st.session_state.selected_test_q_ids.discard(q_id)
 
                 with col_details:
-                    pat = q.get("pattern_type", "Standard Problem")
-                    st.markdown(f"**Problem {q.get('problem_number', 'N/A')}** `[{pat}]` | **Topic:** {q.get('topic', 'N/A')} $\\rightarrow$ **Subtopic:** {q.get('subtopic', 'N/A')} | *Source: {q.get('source_book', 'N/A')}*")
+                    p_type = q.get("pattern_type", "Standard Problem")
+                    st.markdown(f"**Problem {q.get('problem_number', 'N/A')}** `[{p_type}]` | **Topic:** {q.get('topic', 'N/A')} | *Source: {q.get('source_book', 'N/A')}*")
                     st.markdown(q.get("question_text", ""))
 
+                    # Diagrams
                     if q.get("diagram_path") and os.path.exists(q["diagram_path"]):
-                        st.image(q["diagram_path"], caption="Figure Reference", width=340)
+                        st.image(q["diagram_path"], caption=f"Figure for Problem {q.get('problem_number', 'N/A')}", width=340)
 
-                    # Display Specific Pattern Elements
-                    if q.get("pattern_type") == "Match the Column":
-                        m_col1, m_col2 = st.columns(2)
-                        with m_col1:
+                    # Options for SCQ / MCQ
+                    if p_type in ["Single Correct (SCQ)", "Multiple Correct (MCQ)"] and q.get("options"):
+                        opts = q.get("options", {})
+                        col_a, col_b = st.columns(2)
+                        with col_a:
+                            st.write(f"**(A)** {opts.get('A', '')}")
+                            st.write(f"**(C)** {opts.get('C', '')}")
+                        with col_b:
+                            st.write(f"**(B)** {opts.get('B', '')}")
+                            st.write(f"**(D)** {opts.get('D', '')}")
+
+                    # Match the Column Grid
+                    elif p_type == "Match the Column":
+                        mc1, mc2 = st.columns(2)
+                        with mc1:
                             st.markdown("**Column I**")
                             for item in q.get("column_1", []):
                                 st.write(item)
-                        with m_col2:
+                        with mc2:
                             st.markdown("**Column II**")
                             for item in q.get("column_2", []):
                                 st.write(item)
 
-                    elif q.get("pattern_type") in ["Single Correct (SCQ)", "Multiple Correct (MCQ)"] and q.get("options"):
-                        for opt_key, opt_val in q.get("options", {}).items():
-                            st.markdown(f"**({opt_key})** {opt_val}")
-
-                    with st.expander("Solution & Marking Scheme"):
-                        st.markdown(f"**Correct Answer / Match:** {q.get('correct_answer', 'N/A')}")
-                        st.markdown(f"**Step-by-Step Derivation:**\n{q.get('solution_steps', 'N/A')}")
+                    with st.expander("View Solution & Key"):
+                        st.markdown(f"**Answer:** {q.get('correct_answer', 'N/A')}")
+                        st.markdown(f"**Derivation:**\n{q.get('solution_steps', 'N/A')}")
 
         st.divider()
         st.write(f"Total Questions Chosen: **{len(st.session_state.selected_test_q_ids)}**")
-        if st.button("Generate Final Printable / Export Paper"):
-            st.success(f"Paper '{paper_title}' successfully compiled with {len(st.session_state.selected_test_q_ids)} items!")
+        if st.button("Assemble and Finalize Test Paper", type="primary"):
+            st.success(f"Paper '{paper_title}' finalized with {len(st.session_state.selected_test_q_ids)} questions!")
 
 # ==========================================
-# TAB 3: QUESTION BANK & PATTERN BUILDER
+# TAB 3: QUESTION BANK MANAGEMENT
 # ==========================================
 with tabs[2]:
-    st.header("Question Bank & JEE Advanced Pattern Builder")
+    st.header("Question Bank Management")
     
-    with st.expander("➕ Add / Construct a JEE Advanced Problem", expanded=True):
+    with st.expander("➕ Design / Add Question to Bank", expanded=True):
         pattern_mode = st.selectbox(
-            "Select Question Structure",
+            "Select Question Pattern",
             ["Single Correct (SCQ)", "Multiple Correct (MCQ)", "Numerical", "Match the Column", "Paragraph / Stem"]
         )
 
-        with st.form("jee_question_form", clear_on_submit=True):
-            r1_c1, r1_c2, r1_c3 = st.columns(3)
-            with r1_c1:
-                f_topic = st.text_input("Topic", value="Mechanics")
-            with r1_c2:
-                f_subtopic = st.text_input("Subtopic", value="Rotational Dynamics")
-            with r1_c3:
-                f_label = st.text_input("Problem Identifier", value="P-2026-01")
+        with st.form("custom_jee_builder_form", clear_on_submit=True):
+            r1, r2 = st.columns(2)
+            with r1:
+                f_top = st.text_input("Topic", value="Mechanics")
+            with r2:
+                f_label = st.text_input("Problem Label / Number", value="Q-Design-01")
 
-            f_text = st.text_area("Question Stem / Statement (Supports LaTeX $...$)", height=120)
+            f_text = st.text_area("Question Stem (LaTeX equations enclosed in $...$)", height=120)
 
-            # Match the Column specific fields
             c1_data, c2_data, opts_dict = [], [], {}
-            if pattern_mode == "Match the Column":
-                st.markdown("##### Column Matching Setup")
-                mc1, mc2 = st.columns(2)
-                with mc1:
-                    c1_text = st.text_area("Column I Items (one per line)", value="(A) Uniform Disk\n(B) Hollow Cylinder\n(C) Solid Sphere\n(D) Spherical Shell")
-                    c1_data = [x.strip() for x in c1_text.split("\n") if x.strip()]
-                with mc2:
-                    c2_text = st.text_area("Column II Items (one per line)", value="(P) $I = \\frac{1}{2}MR^2$\n(Q) $I = MR^2$\n(R) $I = \\frac{2}{5}MR^2$\n(S) $I = \\frac{2}{3}MR^2$")
-                    c2_data = [x.strip() for x in c2_text.split("\n") if x.strip()]
-
-            # Multiple Choice specific fields
-            elif pattern_mode in ["Single Correct (SCQ)", "Multiple Correct (MCQ)"]:
-                st.markdown("##### Answer Choices")
+            if pattern_mode in ["Single Correct (SCQ)", "Multiple Correct (MCQ)"]:
+                st.markdown("##### Choices")
                 oc1, oc2 = st.columns(2)
                 with oc1:
                     opt_a = st.text_input("Option (A)")
-                    opt_b = st.text_input("Option (B)")
-                with oc2:
                     opt_c = st.text_input("Option (C)")
+                with oc2:
+                    opt_b = st.text_input("Option (B)")
                     opt_d = st.text_input("Option (D)")
                 opts_dict = {"A": opt_a, "B": opt_b, "C": opt_c, "D": opt_d}
 
-            r2_c1, r2_c2 = st.columns(2)
-            with r2_c1:
-                f_ans = st.text_input("Correct Answer / Key", value="A->P, B->Q, C->R, D->S" if pattern_mode == "Match the Column" else "A")
-            with r2_c2:
-                f_source = st.text_input("Source Tag", value="Self Designed")
+            elif pattern_mode == "Match the Column":
+                st.markdown("##### Columns Configuration")
+                mc1, mc2 = st.columns(2)
+                with mc1:
+                    c1_raw = st.text_area("Column I (one per line)", value="(A) Uniform Disc\n(B) Ring\n(C) Solid Sphere\n(D) Hollow Sphere")
+                    c1_data = [x.strip() for x in c1_raw.split("\n") if x.strip()]
+                with mc2:
+                    c2_raw = st.text_area("Column II (one per line)", value="(P) $MR^2$\n(Q) $\\frac{1}{2}MR^2$\n(R) $\\frac{2}{5}MR^2$\n(S) $\\frac{2}{3}MR^2$")
+                    c2_data = [x.strip() for x in c2_raw.split("\n") if x.strip()]
 
-            f_sol = st.text_area("Analytical Solution / Derivation", height=100)
+            r_ans, r_src = st.columns(2)
+            with r_ans:
+                f_ans = st.text_input("Correct Answer / Key", value="A")
+            with r_src:
+                f_src = st.text_input("Source Identifier", value="Custom Design")
+
+            f_sol = st.text_area("Analytical Derivation / Solution", height=100)
 
             if st.form_submit_button("Save Question to Bank"):
                 current_data = load_db()
                 entry = {
                     "problem_number": f_label.strip(),
-                    "topic": f_topic.strip(),
-                    "subtopic": f_subtopic.strip(),
+                    "topic": f_top.strip(),
                     "pattern_type": pattern_mode,
                     "question_text": f_text,
                     "options": opts_dict,
@@ -262,11 +249,11 @@ with tabs[2]:
                     "solution_steps": f_sol,
                     "has_diagram": False,
                     "diagram_path": None,
-                    "source_book": f_source.strip()
+                    "source_book": f_src.strip()
                 }
                 current_data.append(entry)
                 save_db(current_data)
-                st.success(f"Problem '{f_label}' added under {f_topic} -> {f_subtopic}!")
+                st.success(f"Problem '{f_label}' added successfully!")
                 st.rerun()
 
     st.divider()
@@ -278,7 +265,6 @@ with tabs[2]:
                 "Problem #": d.get("problem_number"),
                 "Type": d.get("pattern_type", "Standard"),
                 "Topic": d.get("topic"),
-                "Subtopic": d.get("subtopic"),
                 "Source": d.get("source_book")
             }
             for d in all_data
