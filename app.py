@@ -49,7 +49,6 @@ def load_db():
         try:
             with open(DB_PATH, "r", encoding="utf-8") as f:
                 data = json.load(f)
-                # Ensure backward compatibility by assigning Physics if subject tag is missing
                 for item in data:
                     if "subject" not in item:
                         item["subject"] = "Physics"
@@ -637,7 +636,15 @@ with tabs[0]:
                     tmp_path = tmp.name
 
                 try:
-                    process_book_pdf(tmp_path, book_title, subject, int(start_p), int(end_p), db_path=DB_PATH)
+                    # Clean keyword call: prevents any argument collision
+                    process_book_pdf(
+                        pdf_path=tmp_path,
+                        book_title=book_title,
+                        subject=subject,
+                        start_page=int(start_p),
+                        end_page=int(end_p),
+                        db_path=DB_PATH
+                    )
                     st.cache_data.clear()
                     st.success(f"{subject} problems extracted and indexed successfully!")
                     st.rerun()
@@ -657,7 +664,6 @@ with tabs[1]:
     if not questions:
         st.warning("Database empty. Please ingest problems in Tab 1 first.")
     else:
-        # Paper Mode: Full PCM Mock or Single Subject
         mode = st.radio("Test Paper Scope", ["Full Mock (Physics + Chemistry + Mathematics)", "Single Subject Special Test"], horizontal=True)
 
         sections_to_assemble = ["Physics", "Chemistry", "Mathematics"] if "Full Mock" in mode else [
@@ -687,7 +693,6 @@ with tabs[1]:
             with f2:
                 sel_topic = st.selectbox(f"Filter Topic ({subj})", ["All Topics"] + available_topics, key=f"top_{subj}")
 
-            # Subtopic Filter
             if sel_topic == "All Topics":
                 raw_subs = [q.get("subtopic", "").strip() for q in subj_pool if q.get("subtopic")]
             else:
@@ -697,7 +702,6 @@ with tabs[1]:
             with f3:
                 sel_subtopic = st.selectbox(f"Filter Subtopic ({subj})", ["All Subtopics"] + available_subs, key=f"sub_{subj}")
 
-            # Apply Subject filters
             f_pool = subj_pool
             if sel_book != "All Books":
                 f_pool = [q for q in f_pool if q.get("source_book") == sel_book]
