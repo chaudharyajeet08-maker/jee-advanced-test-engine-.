@@ -628,19 +628,39 @@ with tabs[1]:
         if not available_topics:
             available_topics = ["General Physics"]
 
-        f1, f2, f3 = st.columns(3)
+        f1, f2, f3, f4 = st.columns(4)
         with f1:
             selected_book = st.selectbox("Filter Book", ["All Books"] + available_books)
         with f2:
             selected_topic = st.selectbox("Filter Topic", ["All Topics"] + available_topics)
+
+        # Dynamic Subtopic Filter based on selected Topic
+        if selected_topic == "All Topics":
+            raw_subtopics = [q.get("subtopic", "").strip() for q in questions if q.get("subtopic")]
+        else:
+            raw_subtopics = [
+                q.get("subtopic", "").strip() 
+                for q in questions 
+                if q.get("topic", "").strip().lower() == selected_topic.lower() and q.get("subtopic")
+            ]
+        available_subtopics = sorted(list(set([st for st in raw_subtopics if st])))
+
         with f3:
-            custom_title = st.text_input("Header Title", value="Comprehensive Physics Test" if selected_topic == "All Topics" else selected_topic)
+            selected_subtopic = st.selectbox("Filter Subtopic", ["All Subtopics"] + available_subtopics)
+
+        with f4:
+            default_title = "Comprehensive Physics Test"
+            if selected_topic != "All Topics":
+                default_title = selected_topic if selected_subtopic == "All Subtopics" else f"{selected_topic} - {selected_subtopic}"
+            custom_title = st.text_input("Header Title", value=default_title)
 
         filtered_pool = questions
         if selected_book != "All Books":
             filtered_pool = [q for q in filtered_pool if q.get("source_book") == selected_book]
         if selected_topic != "All Topics":
             filtered_pool = [q for q in filtered_pool if q.get("topic", "").strip().lower() == selected_topic.lower()]
+        if selected_subtopic != "All Subtopics":
+            filtered_pool = [q for q in filtered_pool if q.get("subtopic", "").strip().lower() == selected_subtopic.lower()]
 
         total_avail = len(filtered_pool)
         st.info(f"Available Base Problems: **{total_avail}**")
