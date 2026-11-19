@@ -156,6 +156,13 @@ def assemble_paper(
     for idx, q in enumerate(selected, 1):
         q_type = q.get("question_type", "Question").replace("_", " ").title()
         q_text = q.get("question_text", "").strip()
+        if q.get("question_image"):
+            import base64
+            try:
+                with open(q["question_image"], "rb") as fh:
+                    q_text = '<img src="data:image/png;base64,%s" style="max-width:100%%;height:auto;">' % base64.b64encode(fh.read()).decode()
+            except OSError:
+                q_text = "[question image missing]"
 
         # Build clean options without duplicate letters
         options_html = ""
