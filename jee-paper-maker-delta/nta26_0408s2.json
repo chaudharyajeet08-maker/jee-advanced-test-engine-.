@@ -1,0 +1,1877 @@
+[
+ {
+  "uid": "NTA26-0408S2-Q01",
+  "subject": "maths",
+  "chapter": "Sets, Relations and Functions",
+  "topic": "Relations",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Consider the relation $R$ on the set $\\{-2,-1,0,1,2\\}$ defined by $(a,b)\\in R$ if and only if $1+ab>0$. Then, among the statements: I. The number of elements in $R$ is 17; II. $R$ is an equivalence relation",
+  "answer": "A",
+  "solution": "$1+ab>0 \\iff ab\\ge 0$ (integers). Pairs with $ab<0$: $2\\cdot2\\cdot2=8$, so $|R|=25-8=17$. Not transitive: $(-1,0),(0,1)\\in R$ but $(-1,1)\\notin R$. Only I true.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "Only I is true",
+   "Only II is true",
+   "Both I and II are true",
+   "Neither I nor II is true"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q02",
+  "subject": "maths",
+  "chapter": "Complex Numbers",
+  "topic": "Locus, ellipse",
+  "qtype": "mcq_single",
+  "difficulty": 4,
+  "text": "The number of values of $z\\in\\mathbb{C}$ satisfying $|z-(4+8i)|=\\sqrt{10}$ and $|z-(3+5i)|+|z-(5+11i)|=4\\sqrt5$ is",
+  "answer": "B",
+  "solution": "Second equation: ellipse with foci $(3,5),(5,11)$, centre $(4,8)$, $2a=4\\sqrt5$, $c=\\sqrt{10}$, $b^2=a^2-c^2=10$. The first is a circle with the same centre and radius $\\sqrt{10}=b$, touching the ellipse at the two ends of the minor axis: 2 points.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "0",
+   "2",
+   "1",
+   "4"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q03",
+  "subject": "maths",
+  "chapter": "Matrices and Determinants",
+  "topic": "Linear system",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "If the system of linear equations $x+y+z=6$, $x+2y+5z=10$, $2x+3y+\\lambda z=\\mu$ has infinitely many solutions, then $\\lambda+\\mu$ equals",
+  "answer": "C",
+  "solution": "$\\Delta=\\lambda-6=0\\Rightarrow\\lambda=6$. Third equation must equal Eq1+Eq2 (coefficients $2,3,6$), so $\\mu=16$. $\\lambda+\\mu=22$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "12",
+   "16",
+   "22",
+   "28"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q04",
+  "subject": "maths",
+  "chapter": "Matrices and Determinants",
+  "topic": "adjoint, determinant",
+  "qtype": "mcq_single",
+  "difficulty": 4,
+  "text": "Let $A=\\begin{bmatrix}\\alpha&1&2\\\\2&3&0\\\\0&4&5\\end{bmatrix}$ and $B=\\begin{bmatrix}1&0&0\\\\0&-5\\alpha&0\\\\0&4\\alpha&-2\\alpha\\end{bmatrix}+\\operatorname{adj}(A)$. If $\\det(B)=66$, then $\\det(\\operatorname{adj}(A))$ equals",
+  "answer": "C",
+  "solution": "$\\operatorname{adj}A=\\begin{bmatrix}15&3&-6\\\\-10&5\\alpha&4\\\\8&-4\\alpha&3\\alpha-2\\end{bmatrix}$, so $B=\\begin{bmatrix}16&3&-6\\\\-10&0&4\\\\8&0&\\alpha-2\\end{bmatrix}$ and $\\det B=30\\alpha+36=66\\Rightarrow\\alpha=1$. $\\det A=15\\alpha+6=21$; $\\det(\\operatorname{adj}A)=21^2=441$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "289",
+   "361",
+   "441",
+   "529"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q05",
+  "subject": "maths",
+  "chapter": "Sequences and Series",
+  "topic": "AP grouped sum",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Let $\\alpha=3+4+8+9+13+14+\\dots$ up to 40 terms. If $(\\tan\\beta)^{\\alpha/1020}$ is a root of $x^2+x-2=0$, $\\beta\\in(0,\\pi/2)$, then $\\sin^2\\beta+3\\cos^2\\beta$ is equal to",
+  "answer": "A",
+  "solution": "Pairs $(5k-2)+(5k-1)=10k-3$, $k=1..20$: $\\alpha=2040$, $\\alpha/1020=2$. Roots are $1,-2$; $(\\tan\\beta)^2=1\\Rightarrow\\tan\\beta=1$, so $\\sin^2\\beta+3\\cos^2\\beta=\\tfrac12+\\tfrac32=2$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "2",
+   "$\\dfrac74$",
+   "$\\dfrac52$",
+   "$\\dfrac32$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q06",
+  "subject": "maths",
+  "chapter": "Probability",
+  "topic": "Bayes theorem",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "A candidate travels to the examination centre by only one of bus, scooter and car, with probabilities $\\frac25,\\frac15,\\frac25$ respectively. The probabilities of reaching late are $\\frac15,\\frac13,\\frac14$ if the candidate uses bus, scooter and car respectively. Given that the candidate reached late, the probability that the candidate travelled by bus is",
+  "answer": "B",
+  "solution": "Bayes: bus $\\frac{2}{25}$, scooter $\\frac1{15}$, car $\\frac1{10}$; over 150: $12,10,15$. $P=\\frac{12}{37}$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$\\dfrac{11}{37}$",
+   "$\\dfrac{12}{37}$",
+   "$\\dfrac{13}{37}$",
+   "$\\dfrac{14}{37}$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q07",
+  "subject": "maths",
+  "chapter": "Statistics",
+  "topic": "Combined variance",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "A set of four observations has mean 1 and variance 13. Another set of six observations has mean 2 and variance 1. Then the variance of all these 10 observations is equal to",
+  "answer": "C",
+  "solution": "Combined mean $=(4+12)/10=1.6$. $\\sum x^2=4(13+1)+6(1+4)=86$. Variance $=8.6-2.56=6.04$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "5.96",
+   "6.14",
+   "6.04",
+   "6.24"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q08",
+  "subject": "maths",
+  "chapter": "Binomial Theorem",
+  "topic": "Binomial sums via integration",
+  "qtype": "mcq_single",
+  "difficulty": 4,
+  "text": "If $26\\left(\\dfrac{2^3}{3}\\,{}^{12}C_2+\\dfrac{2^5}{5}\\,{}^{12}C_4+\\dfrac{2^7}{7}\\,{}^{12}C_6+\\dots+\\dfrac{2^{13}}{13}\\,{}^{12}C_{12}\\right)=3^{13}-\\alpha$, then $\\alpha$ is equal to",
+  "answer": "C",
+  "solution": "$\\sum_{k\\ge0}\\binom{12}{2k}\\frac{2^{2k+1}}{2k+1}=\\int_0^2\\frac{(1+x)^{12}+(1-x)^{12}}2dx=\\frac{3^{13}+1}{26}$. Removing the $k=0$ term (2): series $=\\frac{3^{13}+1}{26}-2$. Times 26: $3^{13}-51$. $\\alpha=51$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "45",
+   "48",
+   "51",
+   "54"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q09",
+  "subject": "maths",
+  "chapter": "Permutations and Combinations",
+  "topic": "Distribution, onto functions",
+  "qtype": "mcq_single",
+  "difficulty": 2,
+  "text": "A person has three different bags and four different books. The number of ways in which he can put these books in the bags so that no bag is empty is",
+  "answer": "B",
+  "solution": "Onto functions from 4 books to 3 bags: $3^4-3\\cdot2^4+3=36$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "18",
+   "36",
+   "39",
+   "72"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q10",
+  "subject": "maths",
+  "chapter": "Straight Lines",
+  "topic": "Locus",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "If a straight line drawn through the point of intersection of the lines $4x+3y-1=0$ and $3x+4y-1=0$ meets the co-ordinate axes at the points $P$ and $Q$, then the locus of the mid point of $PQ$ is",
+  "answer": "B",
+  "solution": "Intersection $(\\frac17,\\frac17)$. Line $\\frac xa+\\frac yb=1$: $\\frac1{7a}+\\frac1{7b}=1$. Midpoint $(h,k)=(a/2,b/2)$: $\\frac1{14h}+\\frac1{14k}=1\\Rightarrow x+y=14xy$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$x+y-7=0$",
+   "$x+y-14xy=0$",
+   "$2x+y+14xy=0$",
+   "$x+2y-14xy=0$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q11",
+  "subject": "maths",
+  "chapter": "Conic Sections",
+  "topic": "Locus of midpoint",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Let $O$ be the vertex of the parabola $y^2=4x$ and its chords $OP$ and $OQ$ be perpendicular to each other. If the locus of the mid-point of the line segment $PQ$ is a conic $C$, then the length of its latus rectum is",
+  "answer": "B",
+  "solution": "$P(p^2,2p),Q(q^2,2q)$, $OP\\perp OQ\\Rightarrow pq=-4$. Midpoint $h=\\frac{p^2+q^2}2,k=p+q$; $p^2+q^2=k^2+8$, so $y^2=2x-8=2(x-4)$, a parabola with latus rectum $2$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "1",
+   "2",
+   "4",
+   "8"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q12",
+  "subject": "maths",
+  "chapter": "Inverse Trigonometric Functions",
+  "topic": "Inverse trig numeric estimation",
+  "qtype": "mcq_single",
+  "difficulty": 4,
+  "text": "Let $\\alpha=3\\sin^{-1}\\left(\\frac{6}{11}\\right)$ and $\\beta=3\\cos^{-1}\\left(\\frac49\\right)$, where inverse trigonometric functions take only the principal values. Given two statements: Statement I: $\\cos(\\alpha+\\beta)>0$. Statement II: $\\cos(\\alpha)<0$. Choose the correct option.",
+  "answer": "A",
+  "solution": "$\\sin^{-1}(6/11)\\approx33.05^\\circ\\Rightarrow\\alpha\\approx99.2^\\circ$, $\\cos\\alpha<0$ (II true). $\\cos^{-1}(4/9)\\approx63.6^\\circ\\Rightarrow\\beta\\approx190.8^\\circ$. $\\alpha+\\beta\\approx290^\\circ$, $\\cos(\\alpha+\\beta)\\approx0.34>0$ (I true). Both true.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "Both Statement I and Statement II are true",
+   "Both Statement I and Statement II are false",
+   "Statement I is true but Statement II is false",
+   "Statement I is false but Statement II is true"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q13",
+  "subject": "maths",
+  "chapter": "Application of Derivatives",
+  "topic": "Differentiability and monotonicity",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "For the function $f(x)=e^{\\sin|x|}-|x|$, $x\\in\\mathbb{R}$, consider the statements. Statement I: $f$ is differentiable for all $x\\in\\mathbb{R}$. Statement II: $f$ is increasing in $\\left(-\\pi,-\\frac\\pi2\\right)$. Choose the correct option.",
+  "answer": "A",
+  "solution": "At $x=0$: right derivative $=\\cos0\\cdot e^0-1=0$ and left derivative $=0$, so differentiable everywhere. For $x<0$: $f=e^{-\\sin x}+x$, $f'=1-\\cos x\\,e^{-\\sin x}$; on $(-\\pi,-\\pi/2)$, $\\cos x<0$ so $f'>1>0$: increasing. Both true.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "Both Statement I and Statement II are true",
+   "Both Statement I and Statement II are false",
+   "Statement I is true but Statement II is false",
+   "Statement I is false but Statement II is true"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q14",
+  "subject": "maths",
+  "chapter": "Vector Algebra",
+  "topic": "Vector triple product",
+  "qtype": "mcq_single",
+  "difficulty": 4,
+  "text": "Let $\\vec a=4\\hat i-\\hat j+3\\hat k$, $\\vec b=10\\hat i+2\\hat j-\\hat k$ and a vector $\\vec c$ be such that $2(\\vec a\\times\\vec b)+3(\\vec b\\times\\vec c)=\\vec0$. If $\\vec a\\cdot\\vec c=15$, then $\\vec c\\cdot(\\hat i+\\hat j-3\\hat k)$ is equal to",
+  "answer": "B",
+  "solution": "Cross with $\\vec b$: $(\\vec b\\cdot\\vec c)\\vec b-105\\vec c=-\\tfrac23(105\\vec a-35\\vec b)$. Dotting with $\\vec a$ ($\\vec a\\cdot\\vec b=35$, $|\\vec a|^2=26$) gives $\\vec b\\cdot\\vec c=\\frac{49}{3}$, hence $\\vec c=\\frac{10\\vec a-\\vec b}{15}=\\frac{(30,-12,31)}{15}$. $\\vec c\\cdot(1,1,-3)=\\frac{30-12-93}{15}=-5$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$-6$",
+   "$-5$",
+   "$-4$",
+   "$-3$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q15",
+  "subject": "maths",
+  "chapter": "Three Dimensional Geometry",
+  "topic": "Distance between parallel lines",
+  "qtype": "mcq_single",
+  "difficulty": 4,
+  "text": "Let the foot of perpendicular from the point $(\\lambda,2,3)$ on the line $\\frac{x-4}{1}=\\frac{y-9}{2}=\\frac{z-5}{1}$ be the point $(1,\\mu,2)$. Then the distance between the lines $\\frac{x-1}{2}=\\frac{y-2}{3}=\\frac{z+4}{6}$ and $\\frac{x-\\lambda}{2}=\\frac{y-\\mu}{3}=\\frac{z+5}{6}$ is equal to",
+  "answer": "C",
+  "solution": "Foot $(1,3,2)$ at $t=-3$, so $\\mu=3$; perpendicularity $(1-\\lambda,1,-1)\\cdot(1,2,1)=0\\Rightarrow\\lambda=2$. Lines are parallel (direction $(2,3,6)$) through $(1,2,-4)$ and $(2,3,-5)$. $\\overrightarrow{AB}=(1,1,-1)$, $\\overrightarrow{AB}\\times(2,3,6)=(9,-8,1)$, distance $=\\frac{\\sqrt{146}}{7}$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$\\dfrac{12}{7}$",
+   "$\\dfrac{\\sqrt{145}}{7}$",
+   "$\\dfrac{\\sqrt{146}}{7}$",
+   "$\\dfrac{\\sqrt{143}}{7}$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q16",
+  "subject": "maths",
+  "chapter": "Definite Integration",
+  "topic": "Integration with substitution",
+  "qtype": "mcq_single",
+  "difficulty": 4,
+  "text": "The value of the integral $\\displaystyle\\int_0^2\\frac{\\sqrt{x(x^2+x+1)}}{(\\sqrt x+1)\\left(\\sqrt{x^4+x^2+1}\\right)}\\,dx$ is equal to",
+  "answer": "D",
+  "solution": "Using $x^4+x^2+1=(x^2+x+1)(x^2-x+1)$ the integrand reduces to $\\frac{\\sqrt x}{(\\sqrt x+1)\\sqrt{x^2-x+1}}$. A numerical evaluation gives about $0.843$, which does not match any option exactly (the printed integrand or options may be mis-transcribed); the closest option, D ($\\approx0.750$), is given as the best guess.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$\\dfrac13\\log_e(3-2\\sqrt2)$",
+   "$\\dfrac23\\log_e(4+\\sqrt2)$",
+   "$\\dfrac23\\log_e(3+2\\sqrt2)$",
+   "$\\dfrac13\\log_e(1+6\\sqrt2)$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key",
+   "ambiguous_or_error_suspected"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q17",
+  "subject": "maths",
+  "chapter": "Differential Equations",
+  "topic": "Linear DE",
+  "qtype": "mcq_single",
+  "difficulty": 4,
+  "text": "Let $y=y(x)$ be the solution of the differential equation $x\\sqrt{1-x^2}\\,dy+\\left(y\\sqrt{1-x^2}-x\\cos^{-1}x\\right)dx=0$, $x\\in(0,1)$, $\\lim_{x\\to1^-}y(x)=1$. Then $y\\left(\\frac12\\right)$ equals",
+  "answer": "A",
+  "solution": "$\\frac{dy}{dx}+\\frac yx=\\frac{\\cos^{-1}x}{\\sqrt{1-x^2}}$, IF $=x$. With $x=\\cos\\theta$: $xy=-x-\\sqrt{1-x^2}\\cos^{-1}x+C$. $x\\to1$, $y\\to1$: $C=2$. At $x=\\frac12$: $\\frac y2=\\frac32-\\frac{\\pi\\sqrt3}{6}$, so $y=3-\\frac{\\pi}{\\sqrt3}$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$3-\\dfrac{\\pi}{\\sqrt3}$",
+   "$4-\\sqrt3\\,\\pi$",
+   "$4-\\dfrac{2\\pi}{\\sqrt3}$",
+   "$3-\\dfrac{\\pi}{2\\sqrt3}$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q18",
+  "subject": "maths",
+  "chapter": "Area Under Curves",
+  "topic": "Functional iteration, area",
+  "qtype": "mcq_single",
+  "difficulty": 4,
+  "text": "Let $f:(1,\\infty)\\to\\mathbb{R}$ be defined as $f(x)=\\dfrac{x-1}{x+1}$. Let $f^{i+1}(x)=f(f^i(x))$, $i=1,2,\\dots,25$, where $f^1(x)=f(x)$. If $g(x)+f^{26}(x)=0$, $x\\in(1,\\infty)$, then the area of the region bounded by the curves $y=g(x)$, $2y=2x-3$, $y=0$ and $x=4$ is",
+  "answer": "A",
+  "solution": "$f^2(x)=-\\frac1x$, $f^4(x)=x$, so $f^{26}=f^2=-\\frac1x$ and $g(x)=\\frac1x$. Line $y=x-\\frac32$ meets $y=0$ at $x=\\frac32$ and $y=\\frac1x$ at $x=2$. Area $=\\int_{3/2}^2(x-\\tfrac32)dx+\\int_2^4\\frac{dx}x=\\frac18+\\ln2$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$\\dfrac18+\\log_e2$",
+   "$\\dfrac14+\\log_e2$",
+   "$\\dfrac56+3\\log_e2$",
+   "$\\dfrac56+\\log_e2$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q19",
+  "subject": "maths",
+  "chapter": "Definite Integration",
+  "topic": "Continuity, modulus integral",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Let $f(x)=\\begin{cases}\\dfrac13,& x\\le\\pi/2\\\\[2mm] \\dfrac{b(1-\\sin x)}{(\\pi-2x)^2},& x>\\pi/2\\end{cases}$. If $f$ is continuous at $x=\\pi/2$, then the value of $\\displaystyle\\int_0^{3b-6}|x^2+2x-3|\\,dx$ is",
+  "answer": "D",
+  "solution": "With $u=x-\\pi/2\\to0^+$: $\\frac{b(1-\\cos u)}{4u^2}\\to\\frac b8=\\frac13$, so $b=\\frac83$, $3b-6=2$. $\\int_0^1(3-2x-x^2)dx+\\int_1^2(x^2+2x-3)dx=\\frac53+\\frac73=4$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "5",
+   "2",
+   "3",
+   "4"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q20",
+  "subject": "maths",
+  "chapter": "Conic Sections",
+  "topic": "Ellipse condition",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Let $\\dfrac{x^2}{f(a^2+7a+3)}+\\dfrac{y^2}{f(3a+15)}=1$ represent an ellipse with major axis along the $y$-axis, where $f$ is a strictly decreasing positive function on $\\mathbb{R}$. If the set of all possible values of $a$ is $\\mathbb{R}-[\\alpha,\\beta]$, then $\\alpha^2+\\beta^2$ is equal to",
+  "answer": "B",
+  "solution": "Need $f(3a+15)>f(a^2+7a+3)$; $f$ decreasing $\\Rightarrow3a+15<a^2+7a+3\\Rightarrow a^2+4a-12>0\\Rightarrow a<-6$ or $a>2$. So $[\\alpha,\\beta]=[-6,2]$, $\\alpha^2+\\beta^2=40$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "28",
+   "40",
+   "61",
+   "24"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q21",
+  "subject": "maths",
+  "chapter": "Logarithms",
+  "topic": "Logarithmic equation",
+  "qtype": "numerical",
+  "difficulty": 3,
+  "text": "The sum of squares of all the real solutions of the equation $\\log_{(x+1)}(2x^2+5x+3)=4-\\log_{(2x+3)}(x^2+2x+1)$ is equal to ______.",
+  "answer": "2",
+  "solution": "$2x^2+5x+3=(2x+3)(x+1)$. Let $a=\\log_{x+1}(2x+3)$: $a+1=4-\\frac2a\\Rightarrow a^2-3a+2=0\\Rightarrow a=1,2$. $a=1$ gives $x=-2$ (rejected, $x>-1$). $a=2$: $(x+1)^2=2x+3\\Rightarrow x^2=2$; $x=-\\sqrt2<-1$ rejected. Only $x=\\sqrt2$; sum of squares $=2$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q22",
+  "subject": "maths",
+  "chapter": "Definite Integration",
+  "topic": "Trig identity integral",
+  "qtype": "numerical",
+  "difficulty": 4,
+  "text": "If $\\displaystyle\\int_{\\pi/6}^{\\pi/4}\\left(\\cot\\left(x-\\frac\\pi3\\right)\\cot\\left(x+\\frac\\pi3\\right)+1\\right)dx=\\alpha\\log_e(\\sqrt3-1)$, then $9\\alpha^2$ is equal to ______.",
+  "answer": "12",
+  "solution": "With $A=x-\\frac\\pi3,B=x+\\frac\\pi3$: $\\cot A\\cot B+1=\\cot(B-A)(\\cot A-\\cot B)=-\\frac1{\\sqrt3}(\\cot A-\\cot B)$. Integral $=-\\frac1{\\sqrt3}\\left[\\ln\\left|\\frac{\\sin(x-\\pi/3)}{\\sin(x+\\pi/3)}\\right|\\right]_{\\pi/6}^{\\pi/4}=-\\frac1{\\sqrt3}\\ln\\frac{2-\\sqrt3}{1/2}=-\\frac2{\\sqrt3}\\ln(\\sqrt3-1)$. $\\alpha^2=\\frac43$, $9\\alpha^2=12$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q23",
+  "subject": "maths",
+  "chapter": "Three Dimensional Geometry",
+  "topic": "Lines in 3D",
+  "qtype": "numerical",
+  "difficulty": 4,
+  "text": "Let a line $L_1$ pass through the origin and be perpendicular to the lines $L_2:\\vec r=(3+t)\\hat i+(2t-1)\\hat j+(2t+4)\\hat k$ and $L_3:\\vec r=(3+2s)\\hat i+(3+2s)\\hat j+(2+s)\\hat k$, $t,s\\in\\mathbb{R}$. If $(a,b,c)$, $a\\in\\mathbb{Z}$, is the point on $L_3$ at a distance $\\sqrt{17}$ from the point of intersection of $L_1$ and $L_2$, then $(a+b+c)^2$ is equal to ______.",
+  "answer": "4",
+  "solution": "$L_1$ direction $=(1,2,2)\\times(2,2,1)=(-2,3,-2)$. Intersection with $L_2$: $t=-1$, point $(2,-3,2)$. Point on $L_3$: $(3+2s,3+2s,2+s)$; $(1+2s)^2+(6+2s)^2+s^2=17\\Rightarrow9s^2+28s+20=0\\Rightarrow s=-2$ or $-\\frac{10}9$. Integer $a$: $s=-2$, point $(-1,-1,0)$, $(a+b+c)^2=4$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q24",
+  "subject": "maths",
+  "chapter": "Circles",
+  "topic": "Chord subtending right angle",
+  "qtype": "numerical",
+  "difficulty": 4,
+  "text": "Consider the circle $C: x^2+y^2-6x-8y-11=0$. Let a variable chord $AB$ of the circle $C$ subtend a right angle at the origin. If the locus of the foot of the perpendicular drawn from the origin on the chord $AB$ is the circle $x^2+y^2-\\alpha x-\\beta y-\\gamma=0$, then $\\alpha+\\beta+2\\gamma$ is equal to ______.",
+  "answer": "18",
+  "solution": "Foot $(h,k)$, $r=h^2+k^2$; chord $hx+ky=r$. Homogenise the circle: $x^2+y^2-(6x+8y)\\frac{hx+ky}{r}-11\\left(\\frac{hx+ky}r\\right)^2=0$. Right angle at origin: coefficients of $x^2$ and $y^2$ sum to zero: $2-\\frac{6h+8k}{r}-\\frac{11}{r}=0\\Rightarrow x^2+y^2-3x-4y-\\frac{11}2=0$. $\\alpha=3,\\beta=4,\\gamma=\\frac{11}2$; sum $=18$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q25",
+  "subject": "maths",
+  "chapter": "Sets, Relations and Functions",
+  "topic": "Functional equation, polynomial",
+  "qtype": "numerical",
+  "difficulty": 4,
+  "text": "Let $f$ be a polynomial function such that $\\log_2(f(x))=\\left(\\log_2\\left(2+\\frac23+\\frac29+\\dots\\infty\\right)\\right)\\cdot\\log_3\\left(1+\\frac{f(x)}{f(1/x)}\\right)$, $x>0$ and $f(6)=37$. Then $\\sum_{n=1}^{10}f(n)$ is equal to ______.",
+  "answer": "395",
+  "solution": "$2+\\frac23+\\frac29+\\dots=3$, so $\\log_2f(x)=\\log_23\\cdot\\log_3\\left(1+\\frac{f(x)}{f(1/x)}\\right)=\\log_2\\left(1+\\frac{f(x)}{f(1/x)}\\right)$, i.e. $f(x)f(1/x)=f(x)+f(1/x)$. Polynomial solution $f(x)=1+x^n$; $f(6)=37\\Rightarrow n=2$. $\\sum_{n=1}^{10}(1+n^2)=10+385=395$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q26",
+  "subject": "physics",
+  "chapter": "Units and Measurements",
+  "topic": "Change of units",
+  "qtype": "mcq_single",
+  "difficulty": 2,
+  "text": "A new unit ($\\alpha$) of length is chosen such that it is equal to the speed of light in vacuum. What is the distance between Venus and Earth in terms of $\\alpha$ units if light takes 6 min. 40 s to cover this distance?",
+  "answer": "B",
+  "solution": "The unit $\\alpha$ equals $c\\times1\\,\\text{s}$ in length. Time $=6\\,\\text{min}\\,40\\,\\text{s}=400$ s, so distance $=c\\times400\\,\\text{s}=400\\,\\alpha$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$200\\,\\alpha$",
+   "$400\\,\\alpha$",
+   "$300\\,\\alpha$",
+   "$500\\,\\alpha$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q27",
+  "subject": "physics",
+  "chapter": "Units and Measurements",
+  "topic": "Dimensional analysis",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Consider the equation $H=\\dfrac{x^p\\epsilon^qE^r}{t^s}$, where $H$ = magnetic field (strength); $E$ = electric field, $\\epsilon$ = permittivity, $x$ = distance, $t$ = time. The values of $p,q,r$ and $s$ respectively are",
+  "answer": "A",
+  "solution": "$[H]=AL^{-1}$, $[\\epsilon]=M^{-1}L^{-3}T^4A^2$, $[E]=MLT^{-3}A^{-1}$. Matching: $M$: $-q+r=0$; $A$: $2q-r=1$ gives $q=r=1$; $L$: $p-3q+r=-1\\Rightarrow p=1$; $T$: $4q-3r-s=0\\Rightarrow s=1$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "1, 1, 1, 1",
+   "$-1$, 1, 2, 1",
+   "1, $-1$, $-2$, 1",
+   "$-1$, $-2$, $-2$, 1"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q28",
+  "subject": "physics",
+  "chapter": "Laws of Motion",
+  "topic": "Pseudo force, circular motion",
+  "qtype": "mcq_single",
+  "difficulty": 2,
+  "text": "A car moving with a speed of 54 km/h takes a turn of radius 20 m. A simple pendulum is suspended from the ceiling of the car. Determine the angle made by the string of the pendulum with the vertical during the turning. (Take $g=10\\ \\mathrm{m/s^2}$)",
+  "answer": "C",
+  "solution": "$v=15$ m/s, centripetal acceleration $a=v^2/r=11.25$ m/s$^2$. $\\tan\\theta=a/g=1.125$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$\\tan^{-1}(0.5)$",
+   "$\\tan^{-1}(0.75)$",
+   "$\\tan^{-1}(1.125)$",
+   "$\\tan^{-1}(0.25)$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q29",
+  "subject": "physics",
+  "chapter": "Kinematics",
+  "topic": "Free fall with initial velocity",
+  "qtype": "mcq_single",
+  "difficulty": 2,
+  "text": "A gas balloon is going up with a constant velocity of 10 m/s. When this balloon reached a height of 75 m, a stone is dropped from it and the balloon keeps moving up with the same velocity. The height of the balloon when the stone hits the ground is ______ m. (Take $g=10\\ \\mathrm{m/s^2}$)",
+  "answer": "D",
+  "solution": "Stone: $-75=10t-5t^2\\Rightarrow t^2-2t-15=0\\Rightarrow t=5$ s. Balloon height $=75+10\\times5=125$ m.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "85",
+   "150",
+   "129",
+   "125"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q30",
+  "subject": "physics",
+  "chapter": "Optics",
+  "topic": "Silvered lens",
+  "qtype": "mcq_single",
+  "difficulty": 4,
+  "text": "A thin biconvex lens is prepared from glass ($\\mu=1.5$), both curved surfaces of which have equal radii of 20 cm each. Left side surface of the lens is silvered from outside to make it reflecting. To have the position of image and object at the same place, the object should be placed from the lens at a distance of ______ cm.",
+  "answer": "A",
+  "solution": "Object on the unsilvered (right) side. For the image to coincide with the object the rays must hit the silvered surface normally, i.e. after refraction at the first surface they must appear to diverge from the mirror's centre of curvature, 20 cm from the lens on the object side. Refraction: $\\frac{1.5}{-20}-\\frac{1}{-d}=\\frac{0.5}{20}\\Rightarrow\\frac1d=0.1$, $d=10$ cm.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "10",
+   "12.5",
+   "13",
+   "13.5"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key",
+   "figure_described"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q31",
+  "subject": "physics",
+  "chapter": "Kinematics",
+  "topic": "Projectile motion",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Two identical bodies, projected with the same speed at two different angles cover the same horizontal range $R$. If the time of flight of these bodies are 5 s and 10 s, respectively, then the value of $R$ is ______ m. (Take $g=10\\ \\mathrm{m/s^2}$)",
+  "answer": "A",
+  "solution": "$T=\\frac{2u\\sin\\theta}g$: $u\\sin\\theta_1=25$, $u\\sin\\theta_2=50$. Same range $\\Rightarrow\\theta_2=90^\\circ-\\theta_1$, so $u\\cos\\theta_1=50$. $R=\\frac{2(u\\sin\\theta_1)(u\\cos\\theta_1)}g=\\frac{2\\cdot25\\cdot50}{10}=250$ m.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "250",
+   "25",
+   "500",
+   "125"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q32",
+  "subject": "physics",
+  "chapter": "Rotational Motion",
+  "topic": "Rolling with slipping",
+  "qtype": "mcq_single",
+  "difficulty": 4,
+  "text": "A solid cylinder having radius $R$ and length $L$ is slipping on a rough horizontal plane. At time $t=0$ the cylinder has a translational velocity $v_0=49$ m/s, perpendicular to its axis and a rotational velocity $v_0/4R$ about the centre. The time taken by the cylinder to start rolling is ______ seconds. (coefficient of kinetic friction $\\mu_K=0.25$ and $g=9.8\\ \\mathrm{m/s^2}$)",
+  "answer": "B",
+  "solution": "Rotation taken in the forward-rolling sense. Friction $\\mu mg$ decelerates the centre: $v=v_0-\\mu gt$; torque gives $\\alpha=\\frac{2\\mu g}R$, $\\omega R=\\frac{v_0}4+2\\mu gt$. Rolling when $v=\\omega R$: $\\frac{3v_0}4=3\\mu gt\\Rightarrow t=\\frac{v_0}{4\\mu g}=\\frac{49}{4(0.25)(9.8)}=5$ s.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "15",
+   "5",
+   "10",
+   "7.5"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key",
+   "ambiguous_or_error_suspected"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q33",
+  "subject": "physics",
+  "chapter": "Properties of Solids and Liquids",
+  "topic": "Equation of continuity, Bernoulli",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "A liquid of density $600\\ \\mathrm{kg/m^3}$ flowing steadily in a tube of varying cross-section. The cross-section at a point $A$ is $1.0\\ \\mathrm{cm^2}$ and that at $B$ is $20\\ \\mathrm{mm^2}$. Both the points $A$ and $B$ are in same horizontal plane, the speed of the liquid at $A$ is 10 cm/s. The difference in pressures at $A$ and $B$ points is ______ Pa.",
+  "answer": "D",
+  "solution": "$A_A=100\\ \\mathrm{mm^2}$, $A_B=20\\ \\mathrm{mm^2}$, so $v_B=5v_A=0.5$ m/s. $\\Delta P=\\frac12\\rho(v_B^2-v_A^2)=300(0.25-0.01)=72$ Pa.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "18",
+   "144",
+   "36",
+   "72"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q34",
+  "subject": "physics",
+  "chapter": "Properties of Solids and Liquids",
+  "topic": "Terminal velocity",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "A spherical liquid drop of radius $R$ acquires the terminal velocity $v_1$ when falls through a gas of viscosity $\\eta$. Now the drop is broken into 64 identical droplets and each droplet acquires terminal velocity $v_2$ falling through the same gas. The ratio of terminal velocities $v_1/v_2$ is ______.",
+  "answer": "D",
+  "solution": "$v_T\\propto r^2$. 64 droplets: $r=R/4$, so $v_1/v_2=16$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "4",
+   "0.25",
+   "32",
+   "16"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q35",
+  "subject": "physics",
+  "chapter": "Thermodynamics",
+  "topic": "First law, heat given",
+  "qtype": "mcq_single",
+  "difficulty": 4,
+  "text": "One mole of diatomic gas having rotational modes only is kept in a cylinder with a piston system. The cross-section area of the cylinder is 4 cm$^2$. The gas is heated slowly to raise the temperature by 1.2 $^\\circ$C during which the piston moves by 25 mm. The amount of heat supplied to the gas is ______ J. (Atmospheric pressure = 100 kPa, $R=8.3$ J/mol.K) (Neglect mass of the piston)",
+  "answer": "B",
+  "solution": "$\\Delta U=n\\cdot\\frac52R\\,\\Delta T=2.5(8.3)(1.2)=24.9$ J (translational plus rotational degrees of freedom). Work $=P_0A\\,\\Delta x=10^5\\times4\\times10^{-4}\\times0.025=1$ J, giving $Q\\approx25.9$ J, which is not among the options (the option set appears built on $W\\approx0.1$ J). Closest option: 25 J.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "24.8",
+   "25",
+   "15.04",
+   "29.98"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key",
+   "ambiguous_or_error_suspected"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q36",
+  "subject": "physics",
+  "chapter": "Thermodynamics",
+  "topic": "Adiabatic process",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Initial pressure and volume of a monoatomic ideal gas are $P$ and $V$. The change in internal energy of this gas in adiabatic expansion to volume $V_{final}=27V$ is ______ J.",
+  "answer": "C",
+  "solution": "$\\gamma=\\frac53$: $P_f=P\\,27^{-5/3}=\\frac P{243}$. $\\Delta U=\\frac{P_fV_f-PV}{\\gamma-1}=\\frac32PV\\left(\\frac{27}{243}-1\\right)=\\frac32\\cdot\\left(-\\frac89\\right)PV=-\\frac43PV$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$-2PV(3\\sqrt3-1)$",
+   "$\\dfrac43PV$",
+   "$-\\dfrac43PV$",
+   "$\\dfrac34PV$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q37",
+  "subject": "physics",
+  "chapter": "Oscillations and Waves",
+  "topic": "Spring constant and length",
+  "qtype": "mcq_single",
+  "difficulty": 2,
+  "text": "The frequency of oscillation of a mass $m$ suspended by a spring is $v_1$. If the length of the spring is cut to half, the same mass oscillates with frequency $v_2$. The value of $v_2/v_1$ is ______.",
+  "answer": "C",
+  "solution": "Cutting the spring to half length doubles $k$; $\\nu\\propto\\sqrt k$, so $v_2/v_1=\\sqrt2$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "1",
+   "2",
+   "$\\sqrt2$",
+   "$\\sqrt3$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q38",
+  "subject": "physics",
+  "chapter": "Dual Nature of Matter and Radiation",
+  "topic": "Photon energy, spectrum",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "A monochromatic source of light operating at 15 kW emits $2.5\\times10^{22}$ photons/s. The region of an electromagnetic spectrum to which the emitted electromagnetic radiation belongs to ______. (Take $h=6.6\\times10^{-34}$ J.s and $c=3\\times10^8$ m/s).",
+  "answer": "D",
+  "solution": "Photon energy $=\\frac{15000}{2.5\\times10^{22}}=6\\times10^{-19}$ J. $\\lambda=\\frac{hc}E=\\frac{6.6\\times10^{-34}\\times3\\times10^8}{6\\times10^{-19}}=3.3\\times10^{-7}$ m $=330$ nm: ultraviolet.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "Microwave",
+   "Infrared",
+   "Visible",
+   "Ultraviolet"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q39",
+  "subject": "physics",
+  "chapter": "Magnetic Effects of Current and Magnetism",
+  "topic": "Torque on current loop",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "A current carrying circular loop of radius 2 cm with unit normal $\\hat n=\\dfrac{\\hat k+\\hat i}{\\sqrt2}$ is placed in a magnetic field, $\\vec B=B_0(3\\hat i+2\\hat k)$. If $B_0=4\\times10^{-3}$ T and current $I=100\\sqrt2$ A, the torque experienced by the loop is ______ Wb.A. ($\\pi=3.14$)",
+  "answer": "D",
+  "solution": "$\\vec m=I\\pi r^2\\hat n=100\\pi(4\\times10^{-4})(\\hat i+\\hat k)=0.1256(\\hat i+\\hat k)$. $\\vec\\tau=\\vec m\\times\\vec B$ with $\\vec B=(0.012,0,0.008)$: $\\tau_y=m_zB_x-m_xB_z=0.1256(0.012-0.008)=5.024\\times10^{-4}$, so $\\vec\\tau=5024\\times10^{-7}\\,\\hat j$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$16\\times10^{-5}\\,\\hat k$",
+   "$5024\\times10^{-7}\\,\\hat k$",
+   "$5024\\times10^{-7}\\,\\hat i$",
+   "$5024\\times10^{-7}\\,\\hat j$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q40",
+  "subject": "physics",
+  "chapter": "Electromagnetic Induction and AC",
+  "topic": "Self inductance of solenoid",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "A 30 cm long solenoid has 10 turns per cm and area of 5 cm$^2$. The current through the solenoid coil varies from 2 A to 4 A in 3.14 s. The e.m.f. induced in the coil is $\\alpha\\times10^{-5}$ V. The value $\\alpha$ is ______.",
+  "answer": "B",
+  "solution": "$n=1000\\ \\mathrm{m^{-1}}$. $L=\\mu_0n^2A\\ell=4\\pi\\times10^{-7}\\times10^6\\times5\\times10^{-4}\\times0.3=1.884\\times10^{-4}$ H. $\\mathcal E=L\\frac{\\Delta I}{\\Delta t}=1.884\\times10^{-4}\\times\\frac2{3.14}=1.2\\times10^{-4}$ V $=12\\times10^{-5}$ V. $\\alpha=12$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "60",
+   "12",
+   "120",
+   "34"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q41",
+  "subject": "physics",
+  "chapter": "Electrostatics",
+  "topic": "Coulomb force in vector form",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Two point charges $q_1=3\\,\\mu C$ and $q_2=-4\\,\\mu C$ are placed at points $(2\\hat i+3\\hat j+3\\hat k)$ and $(\\hat i+\\hat j+\\hat k)$ respectively. Force on charge $q_2$ is ______ N. (Take $\\frac1{4\\pi\\epsilon_0}=9\\times10^9$ SI Units)",
+  "answer": "B",
+  "solution": "$\\vec r_1-\\vec r_2=(1,2,2)$, $r=3$ m. Magnitude $=\\frac{9\\times10^9\\times3\\times10^{-6}\\times4\\times10^{-6}}{9}=12\\times10^{-3}$ N, attractive (towards $q_1$): $\\vec F=12\\times10^{-3}\\cdot\\frac{(1,2,2)}3=(4\\hat i+8\\hat j+8\\hat k)\\times10^{-3}$ N.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$(12\\hat i+24\\hat j+24\\hat k)\\times10^{-3}$",
+   "$(4\\hat i+8\\hat j+8\\hat k)\\times10^{-3}$",
+   "$(3\\hat i+6\\hat j+6\\hat k)\\times10^{-3}$",
+   "$(-4\\hat i-8\\hat j-8\\hat k)\\times10^{-3}$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q42",
+  "subject": "physics",
+  "chapter": "Optics",
+  "topic": "Snell's law with vectors",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Light ray incident along a vector $\\overrightarrow{AO}$ ($\\overrightarrow{AO}=2\\hat i-3\\hat j$) emerges out along vector $\\overrightarrow{OB}$ ($\\overrightarrow{OB}=C\\hat i-4\\hat j$) as shown in the figure below. The value of $C$ is ______. Figure: a horizontal interface with medium $\\mu_1=1$ above and $\\mu_2=1.5$ below; the ray travels down-right from $A$ to the point $O$ on the interface, making angle $\\alpha$ with the vertical normal, and continues into the lower medium along $OB$ making angle $\\beta$ with the normal.",
+  "answer": "A",
+  "solution": "$\\sin\\alpha=\\frac2{\\sqrt{13}}$. Snell: $\\sin\\beta=\\frac{\\sin\\alpha}{1.5}=\\frac4{3\\sqrt{13}}$, so $\\tan\\beta=\\frac4{\\sqrt{101}}=\\frac C4\\Rightarrow C=\\frac{16}{\\sqrt{101}}\\approx1.6$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "1.6",
+   "0.16",
+   "11.6",
+   "16"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key",
+   "figure_described"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q43",
+  "subject": "physics",
+  "chapter": "Dual Nature of Matter and Radiation",
+  "topic": "Photoelectric equation",
+  "qtype": "mcq_single",
+  "difficulty": 2,
+  "text": "$K_1$ and $K_2$ be the maximum kinetic energies of photoelectrons emitted from a surface of a given material for the light of wavelength $\\lambda_1$ and $\\lambda_2$, respectively. If $\\lambda_1=2\\lambda_2$ then the work function of material is given by",
+  "answer": "D",
+  "solution": "$K_1=\\frac{hc}{\\lambda_1}-\\phi$, $K_2=\\frac{2hc}{\\lambda_1}-\\phi=2(K_1+\\phi)-\\phi=2K_1+\\phi$. So $\\phi=K_2-2K_1$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$K_2+2K_1$",
+   "$2K_2-K_1$",
+   "$K_1-2K_2$",
+   "$K_2-2K_1$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q44",
+  "subject": "physics",
+  "chapter": "Atoms and Nuclei",
+  "topic": "Alpha decay energy",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Two radioactive substances A and B of mass numbers 200 and 212 respectively, shows spontaneous $\\alpha$-decay with same $Q$ value of 1 MeV. The ratio of energies of $\\alpha$-rays produced by A and B is ______.",
+  "answer": "C",
+  "solution": "By momentum conservation $K_\\alpha=Q\\frac{A-4}{A}$. Ratio $=\\frac{196/200}{208/212}=\\frac{196\\times212}{200\\times208}=\\frac{2597}{2600}$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$\\dfrac{2548}{2650}$",
+   "$\\dfrac{2706}{2646}$",
+   "$\\dfrac{2597}{2600}$",
+   "$\\dfrac{2862}{2499}$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q45",
+  "subject": "physics",
+  "chapter": "Electronic Devices",
+  "topic": "Logic gates",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "The output $Y$ for the given inputs $A$ and $B$ to the circuit is: Circuit: $A$ and $B$ feed an AND gate (top); $A$ passes through an inversion bubble into the second AND gate together with $B$; the outputs of the two AND gates go to an OR gate giving $Y$. Input waveforms: $A=0$ for $0$-$1$ s and $1$ for $1$-$3$ s; $B=1$ for $0$-$2$ s and $0$ for $2$-$3$ s. Options are four output waveforms: (A) $Y=1$ for $0$-$1$ s only, then $0$; (B) $Y=1$ for $0$-$2$ s, then $0$ for $2$-$3$ s; (C) $Y=1$ only for $2$-$3$ s; (D) $Y=1$ only for $1$-$2$ s.",
+  "answer": "B",
+  "solution": "$Y=A\\cdot B+\\bar A\\cdot B=B$. So $Y$ follows $B$: high for $0$-$2$ s, low for $2$-$3$ s.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "Y high for 0-1 s only, low afterwards",
+   "Y high for 0-2 s, low for 2-3 s",
+   "Y low until 2 s, high for 2-3 s",
+   "Y high for 1-2 s only, low otherwise"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key",
+   "figure_described"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q46",
+  "subject": "physics",
+  "chapter": "Electrostatics",
+  "topic": "Capacitor with dielectric and resistivity",
+  "qtype": "numerical",
+  "difficulty": 3,
+  "text": "A parallel plate capacitor is having separation between plates 0.885 mm. It has a capacitance of 1 $\\mu$F when the space between the plates is filled with an insulating material of resistivity $1\\times10^{13}\\ \\Omega$m and resistance $17.7\\times10^{14}\\ \\Omega$. Relative permittivity of the insulating material is $\\alpha\\times10^7$. The value of $\\alpha$ is ______. (Take permittivity of free space $=8.85\\times10^{-12}$ F/m)",
+  "answer": "2",
+  "solution": "$R=\\frac{\\rho d}A\\Rightarrow A=\\frac{10^{13}\\times0.885\\times10^{-3}}{17.7\\times10^{14}}=5\\times10^{-6}\\ \\mathrm{m^2}$. $\\epsilon_r=\\frac{Cd}{\\epsilon_0A}=\\frac{10^{-6}\\times0.885\\times10^{-3}}{8.85\\times10^{-12}\\times5\\times10^{-6}}=2\\times10^7$. $\\alpha=2$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q47",
+  "subject": "physics",
+  "chapter": "Optics",
+  "topic": "Resolving power of telescope",
+  "qtype": "numerical",
+  "difficulty": 3,
+  "text": "Some distant star is to be observed by some telescope of diameter of objective lens $a$, at an angular resolution of $3.0\\times10^{-7}$ radian. If the wavelength of light from the star reaching the telescope is 500 nm, the minimum diameter of the objective lens of the telescope is ______ cm. (nearest integer)",
+  "answer": "203",
+  "solution": "Limit of resolution $\\theta=\\frac{1.22\\lambda}a\\Rightarrow a=\\frac{1.22\\times500\\times10^{-9}}{3\\times10^{-7}}=2.03$ m $\\approx203$ cm.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "flags": [
+   "answer_unverified_no_official_key",
+   "ambiguous_or_error_suspected"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q48",
+  "subject": "physics",
+  "chapter": "Magnetic Effects of Current and Magnetism",
+  "topic": "Helical motion in magnetic field",
+  "qtype": "numerical",
+  "difficulty": 3,
+  "text": "A 5 mg particle carrying a charge of $5\\pi\\times10^{-6}$ C is moving with velocity of $(3\\hat i+2\\hat k)\\times10^{-2}$ m/s in a region having magnetic field $\\vec B=0.1\\,\\hat k$ Wb/m$^2$. It moves a distance of $\\alpha$ meter along $\\hat k$ when it completes 5 revolutions. The value of $\\alpha$ is ______.",
+  "answer": "2",
+  "solution": "Period $T=\\frac{2\\pi m}{qB}=\\frac{2\\pi\\times5\\times10^{-6}}{5\\pi\\times10^{-6}\\times0.1}=20$ s. Five revolutions: 100 s. Pitch motion along $\\hat k$ at $2\\times10^{-2}$ m/s: $\\alpha=2\\times10^{-2}\\times100=2$ m.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q49",
+  "subject": "physics",
+  "chapter": "Current Electricity",
+  "topic": "Capacitor in DC circuit",
+  "qtype": "numerical",
+  "difficulty": 4,
+  "text": "The stored charge in the capacitor in steady state of the following circuit is ______ $\\mu$C. Circuit: a 12 V battery on the left. The top wire carries 5 $\\Omega$, 4 $\\Omega$ and 10 $\\Omega$ resistors in series from left to right, ending in a right-hand branch containing the 100 $\\mu$F capacitor which returns to the bottom wire. Three vertical resistors join the top wire to the bottom wire: 12 $\\Omega$ at the left end (just before the 5 $\\Omega$), 10 $\\Omega$ at the node between 5 $\\Omega$ and 4 $\\Omega$, and 4 $\\Omega$ at the node between 4 $\\Omega$ and 10 $\\Omega$. The bottom wire has two 2 $\\Omega$ resistors in series between the bases of these three vertical resistors (one between the 12 $\\Omega$ and 10 $\\Omega$ verticals, one between the 10 $\\Omega$ and 4 $\\Omega$ verticals).",
+  "answer": "200",
+  "solution": "The 12 $\\Omega$ is directly across the battery (no effect). In steady state no current flows in the capacitor branch (10 $\\Omega$ carries none), so $V_C$ equals the voltage across the vertical 4 $\\Omega$. From the node after the 5 $\\Omega$: vertical 10 $\\Omega$ in parallel with $(4+4+2)=10\\ \\Omega$ gives 5 $\\Omega$; total $5+5+2=12\\ \\Omega$, $I=1$ A, so 5 V across that parallel part, 0.5 A in the 10 $\\Omega$ chain, $V_{4\\Omega}=2$ V. $Q=100\\ \\mu F\\times2\\ \\mathrm V=200\\ \\mu C$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "flags": [
+   "answer_unverified_no_official_key",
+   "figure_described"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q50",
+  "subject": "physics",
+  "chapter": "Kinematics",
+  "topic": "Nth second distance, momentum",
+  "qtype": "numerical",
+  "difficulty": 3,
+  "text": "Two masses of 3.4 kg and 2.5 kg are accelerated from an initial speed of 5 m/s and 12 m/s, respectively. The distances traversed by the masses in the $5^{th}$ second are 104 m and 129 m, respectively. The ratio of their momenta after 10 s is $\\frac{x}{8}$. The value of $x$ is ______.",
+  "answer": "9",
+  "solution": "$s_n=u+a(n-\\tfrac12)$: $5+4.5a_1=104\\Rightarrow a_1=22$; $12+4.5a_2=129\\Rightarrow a_2=26$. At 10 s: $v_1=225$, $v_2=272$; $p_1=3.4\\times225=765$, $p_2=2.5\\times272=680$. Ratio $=\\frac{765}{680}=\\frac98$, $x=9$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q51",
+  "subject": "chemistry",
+  "chapter": "Some Basic Concepts of Chemistry",
+  "topic": "Mole concept",
+  "qtype": "mcq_single",
+  "difficulty": 2,
+  "text": "Match List-I with List-II. List-I (Mass of substance): A. 1.8 mg water; B. 9.8 mg sulphuric acid; C. 1.8 mg carbon; D. 5.85 mg salt (NaCl). List-II (Number of atoms): I. $2\\times10^{-4}\\times N_A$; II. $1.5\\times10^{-4}\\times N_A$; III. $3\\times10^{-4}\\times N_A$; IV. $7\\times10^{-4}\\times N_A$. Choose the correct answer.",
+  "answer": "C",
+  "solution": "Water: $10^{-4}$ mol $\\times3=3\\times10^{-4}N_A$ (III). H$_2$SO$_4$: $10^{-4}$ mol $\\times7=7\\times10^{-4}N_A$ (IV). C: $\\frac{1.8\\times10^{-3}}{12}=1.5\\times10^{-4}N_A$ (II). NaCl: $10^{-4}$ mol $\\times2=2\\times10^{-4}N_A$ (I).",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "A-IV, B-III, C-I, D-II",
+   "A-III, B-II, C-IV, D-I",
+   "A-III, B-IV, C-II, D-I",
+   "A-III, B-IV, C-I, D-II"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q52",
+  "subject": "chemistry",
+  "chapter": "Solutions",
+  "topic": "Mole fraction, deviations from Raoult's law",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Given: Molar mass of C, H, O, Cl are 12, 1, 16 and 35.5 g mol$^{-1}$, respectively. Statement I: In 30% (w/w) solution of methanol in CCl$_4$ (at T K), the mole fraction of CCl$_4$ is equal to 0.33. Statement II: Mixture of methanol and CCl$_4$ shows positive deviation from Raoult's law. Choose the correct option.",
+  "answer": "A",
+  "solution": "30 g CH$_3$OH $=0.9375$ mol; 70 g CCl$_4$ (154) $=0.4545$ mol; $x_{CCl_4}=\\frac{0.4545}{1.392}=0.33$ (I true). Methanol's hydrogen bonding is disrupted by CCl$_4$, giving positive deviation (II true).",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "Both Statement I and Statement II are true",
+   "Both Statement I and Statement II are false",
+   "Statement I is true but Statement II is false",
+   "Statement I is false but Statement II is true"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q53",
+  "subject": "chemistry",
+  "chapter": "Chemical Bonding",
+  "topic": "VSEPR shapes",
+  "qtype": "mcq_single",
+  "difficulty": 2,
+  "text": "Bromine trifluoride autoionizes to form BrF$_2^{\\oplus}$ and BrF$_4^{\\ominus}$. The shapes of the cation and anion are respectively ______ and ______.",
+  "answer": "A",
+  "solution": "BrF$_2^+$: 2 bond pairs + 2 lone pairs (sp$^3$) gives a bent shape. BrF$_4^-$: 4 bond pairs + 2 lone pairs (sp$^3$d$^2$) gives a square planar shape.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "bent, square planar",
+   "linear, square planar",
+   "bent, see-saw",
+   "linear, tetrahedral"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q54",
+  "subject": "chemistry",
+  "chapter": "Solutions",
+  "topic": "Colligative properties",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Which of the following statements are not correct? A. For water, magnitude of $K_b$ is more than the magnitude of $K_f$. B. The elevation in boiling point of water when a non-volatile solute is added to it is larger in magnitude than its depression in freezing point. C. Osmotic pressure measurement is preferred over any other colligative property to determine molar mass of proteins and polymers. D. The dimerised form of benzoic acid in benzene is $\\mathrm{C_6H_5-C(=O)-OH\\cdots O{=}C(OH)-C_6H_5}$ (drawn with a hydrogen bond between the OH of one molecule and the C=O of the other).",
+  "answer": "A",
+  "solution": "$K_b(\\text{water})=0.52<K_f=1.86$ K kg/mol, so A is incorrect and B (which says $\\Delta T_b>\\Delta T_f$) is also incorrect. C is correct (osmotic pressure is large even for dilute solutions at room temperature). D is the accepted hydrogen-bonded dimer, taken as correct. Not correct: A and B only.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "A and B only",
+   "A and D only",
+   "A, B and D only",
+   "A, C and D only"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key",
+   "figure_described"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q55",
+  "subject": "chemistry",
+  "chapter": "Chemical Equilibrium",
+  "topic": "Equilibrium constant combination",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Consider the following reactions in which all the reactants and products are present in gaseous state: $2xy\\rightleftharpoons x_2+y_2$, $K_1=2.5\\times10^5$; $xy+\\tfrac12z_2\\rightleftharpoons xyz$, $K_2=5\\times10^{-3}$. The value of $K_3$ for the equilibrium $\\tfrac12x_2+\\tfrac12y_2+\\tfrac12z_2\\rightleftharpoons xyz$ is",
+  "answer": "C",
+  "solution": "$\\tfrac12x_2+\\tfrac12y_2\\rightleftharpoons xy$ has $K=(1/K_1)^{1/2}=2\\times10^{-3}$. Adding the second reaction: $K_3=2\\times10^{-3}\\times5\\times10^{-3}=1.0\\times10^{-5}$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$2.5\\times10^{-3}$",
+   "$2.5\\times10^{3}$",
+   "$1.0\\times10^{-5}$",
+   "$5\\times10^{-3}$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q56",
+  "subject": "chemistry",
+  "chapter": "Electrochemistry",
+  "topic": "Latimer-type calculation",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Given at 298 K: $E^\\ominus_{Fe^{2+}/Fe}=X$ Volt and $E^\\ominus_{Fe^{3+}/Fe}=Y$ Volt. The $E^\\ominus_{Fe^{3+}/Fe^{2+}}$ in Volt at 298 K is given by",
+  "answer": "B",
+  "solution": "$\\Delta G^\\circ(\\mathrm{Fe^{3+}}\\to\\mathrm{Fe^{2+}})=\\Delta G^\\circ(\\mathrm{Fe^{3+}/Fe})-\\Delta G^\\circ(\\mathrm{Fe^{2+}/Fe})=-3FY+2FX=-FE^\\circ$, so $E^\\circ=3Y-2X$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$2X-3Y$",
+   "$3Y-2X$",
+   "$3Y+2X$",
+   "$Y+X$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q57",
+  "subject": "chemistry",
+  "chapter": "Chemical Kinetics",
+  "topic": "Arrhenius equation, half life",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Given: $R=8.314\\ \\mathrm{J\\,K^{-1}mol^{-1}}$ and 1 cal $=4.2$ J. Statement I: When $E_a=12.6$ kcal/mol, the room temperature rate constant is doubled by a 10 $^\\circ$C increase in temperature (298 K to 308 K). Statement II: For a first order reaction $A\\to B$, the graph of $t_{1/2}$ (s) against $[A]_0$ (mol L$^{-1}$) is a straight line rising from the origin (increasing linearly with $[A]_0$). Choose the correct option.",
+  "answer": "C",
+  "solution": "I: $\\ln\\frac{k_2}{k_1}=\\frac{E_a}R\\left(\\frac1{298}-\\frac1{308}\\right)=\\frac{52920}{8.314}\\times1.0895\\times10^{-4}=0.693=\\ln2$, true. II: for first order $t_{1/2}=0.693/k$ is independent of $[A]_0$, so a graph rising linearly with $[A]_0$ is wrong; false.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "Both Statement I and Statement II are true",
+   "Both Statement I and Statement II are false",
+   "Statement I is true but Statement II is false",
+   "Statement I is false but Statement II is true"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key",
+   "figure_described"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q58",
+  "subject": "chemistry",
+  "chapter": "Classification of Elements and Periodicity",
+  "topic": "Ionisation enthalpy of period 2",
+  "qtype": "mcq_single",
+  "difficulty": 2,
+  "text": "Match List-I with List-II. List-I (Electronic configuration of neutral atom, where $n=2$): A. $ns^2$; B. $ns^2np^1$; C. $ns^2np^3$; D. $ns^2np^6$. List-II (1st Ionization Energy, kJ mol$^{-1}$): I. 2080; II. 899; III. 800; IV. 1402.",
+  "answer": "A",
+  "solution": "$2s^2$ = Be (899, II); $2s^22p^1$ = B (800, III); $2s^22p^3$ = N (1402, IV); $2s^22p^6$ = Ne (2080, I).",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "A-II, B-III, C-IV, D-I",
+   "A-IV, B-III, C-II, D-I",
+   "A-III, B-II, C-IV, D-I",
+   "A-III, B-II, C-I, D-IV"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q59",
+  "subject": "chemistry",
+  "chapter": "p-Block Elements",
+  "topic": "Group 15 hydrides",
+  "qtype": "mcq_single",
+  "difficulty": 2,
+  "text": "Find the correct statements related to group 15 hydrides. A. Reducing nature increases from NH$_3$ to BiH$_3$. B. Tendency to donate lone pair of electrons decreases from NH$_3$ to BiH$_3$. C. The stability of hydrides decreases from NH$_3$ to BiH$_3$. D. HEH bond angle decreases from NH$_3$ to SbH$_3$ (E = Elements of group 15).",
+  "answer": "C",
+  "solution": "Down the group E-H bond strength falls, so stability decreases and reducing power increases (A, C true). Basicity/lone-pair donating ability decreases (B true). Bond angles: NH$_3$ $107^\\circ$, PH$_3$ $93.5^\\circ$, AsH$_3$ $91.8^\\circ$, SbH$_3$ $91.3^\\circ$ (D true). All four correct.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "A and B only",
+   "B and C only",
+   "A, B, C and D",
+   "A, C and D Only"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q60",
+  "subject": "chemistry",
+  "chapter": "d- and f-Block Elements",
+  "topic": "Colour and magnetism of ions",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Statement I: The number of pairs among $[\\mathrm{Ti^{4+}},\\mathrm{V^{2+}}]$, $[\\mathrm{V^{2+}},\\mathrm{Mn^{2+}}]$, $[\\mathrm{Mn^{2+}},\\mathrm{Fe^{3+}}]$ and $[\\mathrm{V^{2+}},\\mathrm{Cr^{2+}}]$ in which both ions are coloured is 3. Statement II: The number of pairs among $[\\mathrm{La^{3+}},\\mathrm{Yb^{2+}}]$, $[\\mathrm{Lu^{3+}},\\mathrm{Ce^{4+}}]$ and $[\\mathrm{Ac^{3+}},\\mathrm{Lr^{3+}}]$ ions in which both are diamagnetic is 3. Choose the correct option.",
+  "answer": "A",
+  "solution": "I: Ti$^{4+}$ ($d^0$) is colourless, so the first pair fails; the other three pairs have both ions with unpaired $d$ electrons: 3 pairs (true). II: La$^{3+}$ ($f^0$), Yb$^{2+}$ ($f^{14}$), Lu$^{3+}$ ($f^{14}$), Ce$^{4+}$ ($f^0$), Ac$^{3+}$ ($5f^0$), Lr$^{3+}$ ($5f^{14}$) are all diamagnetic: 3 pairs (true).",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "Both Statement I and Statement II are correct",
+   "Both Statement I and Statement II are incorrect",
+   "Statement I is correct but Statement II is incorrect",
+   "Statement I is incorrect but Statement II is correct"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q61",
+  "subject": "chemistry",
+  "chapter": "d- and f-Block Elements",
+  "topic": "Catalytic properties of d-block metals",
+  "qtype": "mcq_single",
+  "difficulty": 2,
+  "text": "Given below are two statements for catalytic properties of transition metals. Statement I: First row transition metals which act as catalyst utilise their 3d electrons only for formation of bonds between reactant molecules and atoms on the surface of catalyst. Statement II: There is increase in the concentration of reactants on the surface of catalyst which strengthens the bonds in reacting molecules. Choose the correct option.",
+  "answer": "B",
+  "solution": "Catalysis by first-row transition metals uses both 3d and 4s electrons for bonding to reactants (I incorrect). Adsorption increases reactant concentration on the surface and weakens (not strengthens) the bonds in the reacting molecules (II incorrect).",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "Both Statement I and Statement II are correct",
+   "Both Statement I and Statement II are incorrect",
+   "Statement I is correct but Statement II is incorrect",
+   "Statement I is incorrect but Statement II is correct"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q62",
+  "subject": "chemistry",
+  "chapter": "General Organic Chemistry",
+  "topic": "Fractional distillation",
+  "qtype": "mcq_single",
+  "difficulty": 2,
+  "text": "Statement I: Vapours of the liquid with higher boiling point condense before vapours of the liquid with lower boiling points in fractional distillation. Statement II: The vapours rising up in the fractionating column become richer in high boiling component of the mixture. Choose the correct option.",
+  "answer": "C",
+  "solution": "In a fractionating column the higher-boiling component condenses first and falls back, so the rising vapour becomes richer in the LOWER boiling component. I true, II false.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "Both Statement I and Statement II are true",
+   "Both Statement I and Statement II are false",
+   "Statement I is true but Statement II is false",
+   "Statement I is false but Statement II is true"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q63",
+  "subject": "chemistry",
+  "chapter": "Alcohols, Phenols and Ethers",
+  "topic": "Carbocation rearrangement",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "The major product of which of the following reaction is not obtained by rearrangement reaction? (1) Benzene + 1-chloropropane with anhydrous AlCl$_3$ giving isopropylbenzene (cumene); (2) tert-butyl alcohol with H$_3$O$^+$ giving 2-methylpropene (isobutene); (3) $\\mathrm{CH_3(CH_2)_4CH_3}$ (n-hexane) with anhydrous AlCl$_3$/HCl giving $\\mathrm{CH_3CH(CH_3)(CH_2)_2CH_3}$ (2-methylpentane); (4) neopentyl alcohol $(\\mathrm{CH_3})_3\\mathrm{CCH_2OH}$ with H$_3$O$^+$ giving 2-methylbut-2-ene.",
+  "answer": "B",
+  "solution": "(1) $n$-propyl cation rearranges to isopropyl cation by hydride shift; (3) isomerisation of $n$-hexane via carbocation rearrangement; (4) neopentyl cation undergoes methyl shift to the tertiary cation. (2) tert-butyl cation loses H$^+$ directly to give isobutene with no rearrangement.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "Reaction (1)",
+   "Reaction (2)",
+   "Reaction (3)",
+   "Reaction (4)"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key",
+   "figure_described"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q64",
+  "subject": "chemistry",
+  "chapter": "General Organic Chemistry",
+  "topic": "Aromaticity",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "The total number of aromatic compounds/species from the following is: (i) p-benzoquinone; (ii) tropylium cation (cycloheptatrienyl cation); (iii) phenanthrene; (iv) a bicyclic compound with a benzene ring fused to a saturated six-membered ring carrying two CH$_2$ groups (tetralin); (v) a four-membered ring with one C=C and two cationic carbons (cyclobutenyl dication, 2 $\\pi$ electrons); (vi) cyclohexa-1,3-diene ring bearing an anionic carbon (cyclohexadienyl anion with one sp$^3$ carbon).",
+  "answer": "B",
+  "solution": "Aromatic: tropylium ($6\\pi$), phenanthrene, tetralin (contains a benzene ring) and the cyclobutene dication ($2\\pi$, planar, cyclic, $4n+2$ with $n=0$). Not aromatic: p-benzoquinone (cross-conjugated, not fully conjugated cyclic) and cyclohexadienyl anion (has an sp$^3$ carbon). Total $=4$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "6",
+   "4",
+   "3",
+   "5"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key",
+   "figure_described",
+   "ambiguous_or_error_suspected"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q65",
+  "subject": "chemistry",
+  "chapter": "Hydrocarbons",
+  "topic": "Free radical halogenation",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "n-Butane on monochlorination under photochemical condition gives an optically active compound ``P''. ``P'' on further chlorination gives dichloro compounds. The number of dichloro compounds obtained (ignore stereoisomers) is:",
+  "answer": "B",
+  "solution": "P is 2-chlorobutane $\\mathrm{CH_3CHClCH_2CH_3}$. Further chlorination at C1, C2, C3, C4 gives 1,2-, 2,2-, 2,3- and 1,3- (= 2,4-) dichlorobutane: 4 compounds.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "3",
+   "4",
+   "5",
+   "6"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q66",
+  "subject": "chemistry",
+  "chapter": "Haloalkanes and Haloarenes",
+  "topic": "Physical properties",
+  "qtype": "mcq_single",
+  "difficulty": 2,
+  "text": "Statement I: Due to increase in van der Waals forces, the order of boiling points is $\\mathrm{CH_3CH_2CH_2I>CH_3CH_2I>CH_3I}$. Statement II: As p-dichlorobenzene is more symmetric, its melting point is higher than that of o-dichlorobenzene, however its boiling point is lower than that of o-dichlorobenzene. Choose the correct option.",
+  "answer": "A",
+  "solution": "Boiling points: 1-iodopropane (102 $^\\circ$C) > iodoethane (72 $^\\circ$C) > iodomethane (42 $^\\circ$C), as van der Waals forces rise with size (I true). p-Dichlorobenzene packs better in the crystal (m.p. 53 $^\\circ$C vs $-17^\\circ$C) but has lower b.p. (174 vs 180 $^\\circ$C) than the more polar ortho isomer (II true).",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "Both Statement I and Statement II are true",
+   "Both Statement I and Statement II are false",
+   "Statement I is true but Statement II is false",
+   "Statement I is false but Statement II is true"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key",
+   "figure_described"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q67",
+  "subject": "chemistry",
+  "chapter": "Aldehydes, Ketones and Carboxylic Acids",
+  "topic": "Chemoselective reduction, lactam hydrolysis",
+  "qtype": "mcq_single",
+  "difficulty": 4,
+  "text": "Consider the following reaction: the substrate is an N-substituted piperidin-2-one (six-membered lactam, nitrogen bearing the group $\\mathrm{-CH(CH_3)-CHO}$), treated with (i) NaBH$_4$/MeOH, (ii) NaOH(aq.), $\\Delta$, (iii) H$_3$O$^+$ giving (P). The major product (P) formed is: (A) N-substituted piperidine with $\\mathrm{-CH(CH_3)CH_2OH}$ (lactam fully reduced); (B) 2-hydroxypiperidine bearing the $\\mathrm{-CH(CH_3)CHO}$ group on N; (C) $\\mathrm{HOOC(CH_2)_4NH-CH(CH_3)CH_2OH}$; (D) $\\mathrm{HO(CH_2)_5NH-CH(CH_3)CH_2OH}$.",
+  "answer": "C",
+  "solution": "NaBH$_4$ reduces only the aldehyde to the primary alcohol (the amide/lactam is untouched). Hot aq. NaOH hydrolyses the lactam, opening the ring to the sodium carboxylate/amine; acidification gives the amino acid $\\mathrm{HOOC(CH_2)_4NH-CH(CH_3)CH_2OH}$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "$N$-(1-hydroxypropan-2-yl)piperidine (lactam C=O reduced away)",
+   "2-hydroxypiperidine with N-$\\mathrm{CH(CH_3)CHO}$",
+   "$\\mathrm{HOOC(CH_2)_4NH-CH(CH_3)CH_2OH}$",
+   "$\\mathrm{HO(CH_2)_5NH-CH(CH_3)CH_2OH}$"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key",
+   "figure_described"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q68",
+  "subject": "chemistry",
+  "chapter": "Amines",
+  "topic": "Hoffmann bromamide degradation",
+  "qtype": "mcq_single",
+  "difficulty": 3,
+  "text": "Which statements are True? A. In Hoffmann bromamide degradation, 4 moles of NaOH and 2 moles of Br$_2$ are consumed per mole of an amide. B. Hoffmann bromamide reaction is not given by alkyl amides. C. Primary amines can be synthesized by Hoffmann bromamide degradation. D. Secondary amide on reaction with Br$_2$ and NaOH will give secondary amine. E. The by-products of Hoffmann degradation are Na$_2$CO$_3$, NaBr and H$_2$O.",
+  "answer": "C",
+  "solution": "$\\mathrm{RCONH_2+Br_2+4NaOH\\to RNH_2+Na_2CO_3+2NaBr+2H_2O}$: 1 mol Br$_2$ is used (A false); alkyl and aryl primary amides both react (B false); only primary amides react, giving primary amines with one carbon less (C true, D false); by-products as stated (E true).",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "A, C and E only",
+   "B, C and D only",
+   "C and E only",
+   "C, D and E only"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q69",
+  "subject": "chemistry",
+  "chapter": "Biomolecules",
+  "topic": "Classification of carbohydrates",
+  "qtype": "mcq_single",
+  "difficulty": 2,
+  "text": "The incorrect statement from the following with respect to carbohydrates is:",
+  "answer": "B",
+  "solution": "Hydrolysis of oligosaccharides can give different monosaccharides (e.g. sucrose gives glucose and fructose), so the second statement is incorrect. The others are standard facts.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "All monosaccharides are reducing sugars.",
+   "The monosaccharide units obtained from hydrolysis of oligosaccharides are always the same.",
+   "Starch and cellulose are typical examples of polysaccharides, which are very high molecular weight compounds of more than ten monosaccharide units.",
+   "Open chain and cyclic structures co-exist at equilibrium that are responsible for certain properties as in the case of D-(+)-glucose."
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q70",
+  "subject": "chemistry",
+  "chapter": "Biomolecules",
+  "topic": "Test for phenol",
+  "qtype": "mcq_single",
+  "difficulty": 1,
+  "text": "Which of the following amino acid will give violet coloured complex with neutral ferric chloride solution?",
+  "answer": "C",
+  "solution": "Neutral FeCl$_3$ gives a violet colour with phenolic OH. Tyrosine is the amino acid with a phenol group.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "options": [
+   "Threonine",
+   "Serine",
+   "Tyrosine",
+   "Cysteine"
+  ],
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q71",
+  "subject": "chemistry",
+  "chapter": "Coordination Compounds",
+  "topic": "Magnetic behaviour of complexes",
+  "qtype": "numerical",
+  "difficulty": 3,
+  "text": "Number of paramagnetic complexes among the following is ______. $[\\mathrm{MnBr_4}]^{2-}$, $[\\mathrm{NiCl_4}]^{2-}$, $[\\mathrm{Ni(CN)_4}]^{2-}$, $[\\mathrm{Ni(CO)_4}]$, $[\\mathrm{CoF_6}]^{3-}$, $[\\mathrm{Fe(CN)_6}]^{4-}$, $[\\mathrm{Mn(CN)_6}]^{3-}$, $[\\mathrm{Ti(CN)_6}]^{3-}$, $[\\mathrm{Cu(H_2O)_6}]^{2+}$, $[\\mathrm{Co(C_2O_4)_3}]^{3-}$",
+  "answer": "6",
+  "solution": "Paramagnetic: $[\\mathrm{MnBr_4}]^{2-}$ ($d^5$, tetrahedral), $[\\mathrm{NiCl_4}]^{2-}$ ($d^8$, tetrahedral), $[\\mathrm{CoF_6}]^{3-}$ ($d^6$ high spin), $[\\mathrm{Mn(CN)_6}]^{3-}$ ($d^4$ low spin, 2 unpaired), $[\\mathrm{Ti(CN)_6}]^{3-}$ ($d^1$), $[\\mathrm{Cu(H_2O)_6}]^{2+}$ ($d^9$). Diamagnetic: $[\\mathrm{Ni(CN)_4}]^{2-}$ (square planar), $[\\mathrm{Ni(CO)_4}]$ ($d^{10}$), $[\\mathrm{Fe(CN)_6}]^{4-}$ ($d^6$ low spin), $[\\mathrm{Co(C_2O_4)_3}]^{3-}$ ($d^6$ low spin). Total $=6$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q72",
+  "subject": "chemistry",
+  "chapter": "Aldehydes, Ketones and Carboxylic Acids",
+  "topic": "Gattermann-Koch, Claisen-Schmidt",
+  "qtype": "numerical",
+  "difficulty": 4,
+  "text": "`x' is the product which is obtained from benzene by reacting it with carbon monoxide and hydrogen chloride in the presence of cuprous chloride. `y' is the major product obtained from the benzene by reacting it with ethanoyl chloride in the presence of anhydrous AlCl$_3$. Product (major) obtained by heating $x$ and $y$ in the presence of alkali is $z$. Total number of $\\pi$ (pi) electrons in $z$ is ______.",
+  "answer": "16",
+  "solution": "$x$ = benzaldehyde (Gattermann-Koch), $y$ = acetophenone (Friedel-Crafts acylation). With alkali, crossed aldol (Claisen-Schmidt) condensation gives $z=\\mathrm{C_6H_5CH{=}CH{-}CO{-}C_6H_5}$ (chalcone). $\\pi$ electrons: two benzene rings $6+6=12$, C=C 2, C=O 2; total 16.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q73",
+  "subject": "chemistry",
+  "chapter": "Structure of Atom",
+  "topic": "Energy of radiation",
+  "qtype": "numerical",
+  "difficulty": 1,
+  "text": "Consider two radiations of wavelengths 1. $\\lambda_1=2000$ \\AA 2. $\\lambda_2=6000$ \\AA. The ratio of the energies of these two radiations $\\left(\\dfrac{E_1}{E_2}\\right)$ is ______. (Nearest integer).",
+  "answer": "3",
+  "solution": "$E\\propto1/\\lambda$, so $E_1/E_2=\\lambda_2/\\lambda_1=6000/2000=3$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q74",
+  "subject": "chemistry",
+  "chapter": "Chemical Thermodynamics",
+  "topic": "Enthalpy of reaction from formation enthalpies",
+  "qtype": "numerical",
+  "difficulty": 2,
+  "text": "Consider the reaction $2\\mathrm{H_2S(g)}+3\\mathrm{O_2(g)}\\to2\\mathrm{H_2O(l)}+2\\mathrm{SO_2(g)}$. The magnitude of enthalpy change for the reaction in kJ mol$^{-1}$ is ______. (Nearest integer) Given: $\\Delta_fH^\\circ(\\mathrm{H_2S})=-20.1$, $\\Delta_fH^\\circ(\\mathrm{H_2O})=-286.0$, $\\Delta_fH^\\circ(\\mathrm{SO_2})=-297.0$ kJ mol$^{-1}$.",
+  "answer": "1126",
+  "solution": "$\\Delta H=2(-286.0)+2(-297.0)-2(-20.1)=-572-594+40.2=-1125.8$ kJ; magnitude $\\approx1126$.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ },
+ {
+  "uid": "NTA26-0408S2-Q75",
+  "subject": "chemistry",
+  "chapter": "Chemical Equilibrium",
+  "topic": "Heterogeneous equilibria",
+  "qtype": "numerical",
+  "difficulty": 3,
+  "text": "Solid carbon, CaO and CaCO$_3$ are mixed and allowed to attain equilibrium at T K. $\\mathrm{CaCO_3(s)\\rightleftharpoons CaO(s)+CO_2(g)}$, $K_{p_1}=0.08$ atm; $\\mathrm{C(s)+CO_2(g)\\rightleftharpoons2CO(g)}$, $K_{p_2}=2$ atm. The partial pressure of CO is ______ $\\times10^{-1}$ atm.",
+  "answer": "4",
+  "solution": "$p_{CO_2}=K_{p_1}=0.08$ atm. $K_{p_2}=\\frac{p_{CO}^2}{p_{CO_2}}\\Rightarrow p_{CO}^2=0.16\\Rightarrow p_{CO}=0.4$ atm $=4\\times10^{-1}$ atm.",
+  "source": "NTA JEE Main 2026 - 8 Apr Shift 2 (B.Tech)",
+  "year": 2026,
+  "level": "main",
+  "exam": "jee_main",
+  "flags": [
+   "answer_unverified_no_official_key"
+  ],
+  "needs_check": true,
+  "source_url": "https://cdnbbsr.s3waas.gov.in/s3f8e59f4b2fe7c5705bf878bbd494ccdf/uploads/2026/04/20260409932754345.pdf"
+ }
+]
