@@ -144,7 +144,20 @@ def format_solution_to_html(raw_sol: str) -> str:
 
     return "".join(html_out)
 
+def question_image_html(path: str) -> str:
+    """Inline a stored question image (e.g. imported NTA paper) as a data URI so the exported HTML is standalone."""
+    import base64
+    try:
+        with open(path, "rb") as f:
+            b64 = base64.b64encode(f.read()).decode()
+        return f'<img src="data:image/png;base64,{b64}" style="max-width:100%;height:auto;" alt="question">'
+    except OSError:
+        return "<em>[question image missing]</em>"
+
 def frame_question_dynamically(raw_q: dict, target_type: str) -> dict:
+    if raw_q.get("question_image"):
+        # Image-only questions (imported papers) keep their own type; nothing to re-frame.
+        return raw_q.copy()
     if not client:
         fallback = raw_q.copy()
         fallback["question_type"] = target_type
@@ -283,6 +296,8 @@ def build_section_html(questions_list, start_idx=1):
         }
         q_type_badge = type_labels.get(q_type_raw, "Subject Problem")
         q_text = clean_question_body(q.get("question_text", ""))
+        if q.get("question_image"):
+            q_text = question_image_html(q["question_image"])
 
         interactive_content = ""
 
